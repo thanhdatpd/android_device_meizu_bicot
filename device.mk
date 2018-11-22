@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/tissot/tissot-vendor.mk)
+$(call inherit-product, vendor/meizu/m1721/m1721-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 # Overlay
@@ -22,7 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 # Inherit from msm8953-common
-$(call inherit-product, device/xiaomi/msm8953-common/msm8953.mk)
+$(call inherit-product, device/meizu/msm8953-common/msm8953.mk)
 
 # A/B
 AB_OTA_UPDATER := true
@@ -86,5 +86,5 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # Verity
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
