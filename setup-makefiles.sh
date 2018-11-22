@@ -19,9 +19,9 @@
 set -e
 
 # Required!
-export DEVICE=tissot
+export DEVICE=m1721
 export DEVICE_COMMON=msm8953-common
-export VENDOR=xiaomi
+export VENDOR=meizu
 
 export DEVICE_BRINGUP_YEAR=2017
 
