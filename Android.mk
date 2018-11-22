@@ -25,7 +25,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),tissot)
+ifeq ($(TARGET_DEVICE),m1721)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/wlan_mac.bin
