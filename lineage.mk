@@ -14,18 +14,19 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/xiaomi/tissot/full_tissot.mk)
+$(call inherit-product, device/meizu/m1721/full_m1721.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_tissot
-BOARD_VENDOR := Xiaomi
+PRODUCT_NAME := lineage_m1721
+BOARD_VENDOR := Meizu
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-meizu
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="tissot-user 8.0.0 OPR1.170623.026 8.1.10 release-keys"
+    PRIVATE_BUILD_DESC="m1721-user 9.0.0 23-11-2018 test build thanhdatpd"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "xiaomi/tissot/tissot_sprout:8.0.0/OPR1.170623.026/8.1.10:user/release-keys"
+BUILD_FINGERPRINT := "m1721-user 9.0.0 23-11-2018 test build thanhdatpd"
+#BUILD_FINGERPRINT := "xiaomi/tissot/tissot_sprout:8.0.0/OPR1.170623.026/8.1.10:user/release-keys"
