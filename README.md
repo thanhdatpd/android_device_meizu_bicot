@@ -1,4 +1,4 @@
-# Device Tree for Xiaomi Mi A1 (tissot)
+# Device Tree for Meizu M6 Note (m1721) test build from mi a1
 
 ## Spec Sheet
 
@@ -7,12 +7,12 @@
 | CPU                     | Octa-core 2.0 GHz Cortex-A53      |
 | Chipset                 | Qualcomm MSM8953 Snapdragon 625   |
 | GPU                     | Adreno 506                        |
-| Memory                  | 4 GB                              |
+| Memory                  | 3 GB                              |
 | Shipped Android Version | 7.1.1                             |
-| Storage                 | 64 GB                             |
+| Storage                 | 32 GB                             |
 | MicroSD                 | Up to 256 GB                      |
-| Battery                 | 3080 mAh (non-removable)          |
-| Dimensions              | 155.4 x 75.8 x 7.3 mm             |
+| Battery                 | 4000 mAh (non-removable)          |
+| Dimensions              |             |
 | Display                 | 1920x1080 pixels, 5.5 (~401 PPI)  |
 | Rear Camera             | 12 MP Dual-camera , LED flash     |
 | Front Camera            | 5 MP                              |
@@ -20,4 +20,4 @@
 
 ## Device Picture
 
-![Xiaomi Mi A1](https://i.imgur.com/4UF7PpM.png "Xiaomi Mi A1")
+updating
