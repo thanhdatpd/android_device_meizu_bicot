@@ -16,7 +16,7 @@
 # Inherit from common msm8953-common
 -include device/meizu/msm8953-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/meizu/m1721
+DEVICE_PATH := device/meizu/bicot
 
 # Filesystem
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -24,7 +24,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Kernel
-TARGET_KERNEL_CONFIG := m1721_defconfig
+TARGET_KERNEL_CONFIG := bicot_defconfig
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
@@ -39,7 +39,7 @@ BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Inherit from the proprietary version
--include vendor/meizu/m1721/BoardConfigVendor.mk
+-include vendor/meizu/bicot/BoardConfigVendor.mk
 
 
 
@@ -69,7 +69,7 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-TARGET_OTA_ASSERT_DEVICE := m6note,m6n,m1721,M1721,M6Note
+TARGET_OTA_ASSERT_DEVICE := m6note,m6n,m1721,M1721,M6Note,bicot
 
 # Architecture
 TARGET_ARCH := arm64
