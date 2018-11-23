@@ -19,7 +19,7 @@
 set -e
 
 # Required!
-export DEVICE=m1721
+export DEVICE=bicot
 export DEVICE_COMMON=msm8953-common
 export VENDOR=meizu
 
