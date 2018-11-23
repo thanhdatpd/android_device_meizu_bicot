@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/meizu/m1721/device.mk)
 
 # Device identifier. This must come after all inclusions
-TARGET_VENDOR := Meixu
+TARGET_VENDOR := Meizu
 PRODUCT_DEVICE := m1721
 PRODUCT_NAME := full_m1721
 PRODUCT_BRAND := Meizu
