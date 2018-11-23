@@ -24,6 +24,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Kernel
+TARGET_KERNEL_SOURCE: = kernel/meizu/bicot
 TARGET_KERNEL_CONFIG := bicot_defconfig
 
 # Power
