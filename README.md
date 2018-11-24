@@ -20,4 +20,4 @@
 
 ## Device Picture
 
-updating
+![alt text](https://cdn2.gsmarena.com/vv/pics/meizu/meizu-m6-note-13.jpg)
