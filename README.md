@@ -1,4 +1,4 @@
-# Device Tree for Meizu M6 Note (m1721) test build from mi a1
+# Device Tree for Meizu M6 Note (m1721/bicot) test build from mi a1
 
 ## Spec Sheet
 
