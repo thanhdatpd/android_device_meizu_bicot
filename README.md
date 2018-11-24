@@ -12,7 +12,7 @@
 | Storage                 | 32 GB                             |
 | MicroSD                 | Up to 256 GB                      |
 | Battery                 | 4000 mAh (non-removable)          |
-| Dimensions              |             |
+| Dimensions              | 154.6 x 75.2 x 8.4 mm
 | Display                 | 1920x1080 pixels, 5.5 (~401 PPI)  |
 | Rear Camera             | 12 MP Dual-camera , LED flash     |
 | Front Camera            | 5 MP                              |
