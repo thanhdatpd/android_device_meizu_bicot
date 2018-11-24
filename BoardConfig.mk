@@ -26,6 +26,7 @@ TARGET_NO_RECOVERY := true
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/meizu/bicot
 TARGET_KERNEL_CONFIG := bicot_defconfig
+KERNEL_MAKE_FLAGS := KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
