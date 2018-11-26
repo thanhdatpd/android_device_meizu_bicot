@@ -1,0 +1,1 @@
+LOCAL_SDK_VERSION := current
