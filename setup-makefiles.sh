@@ -25,6 +25,8 @@ export VENDOR=meizu
 
 export DEVICE_BRINGUP_YEAR=2017
 
+#add when fix building error by thanhdatpd
+export SELINUX_IGNORE_NEVERALLOWS = false
 export LOCAL_SDK_VERSION = 28
 export ALLOW_MISSING_DEPENDENCIES = true
 
