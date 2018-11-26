@@ -138,3 +138,5 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_HAS_REBOOT_EDL := true
 
 
+#add when try fix building rom
+ALLOW_MISSING_DEPENDENCIES := true
