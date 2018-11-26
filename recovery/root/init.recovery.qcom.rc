@@ -1,0 +1,121 @@
+# needed to make qseecomd work in recovery
+
+on fs
+
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+    # needed to make qseecomd work in recovery
+    chmod 0660 /dev/qseecom
+    chown system drmrpc /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+
+on property:ro.crypto.state=encrypted
+    chmod 0750 /sbin/qseecom.sh
+    start qseecom
+
+#on property:init.svc.recovery=running
+#    start fixyear
+
+service qseecom /sbin/sh /sbin/qseecom.sh
+    oneshot
+    disabled
+    user root
+    group root
+seclabel u:r:recovery:s0
+
+
+
+#    wait /dev/block/platform/soc/7864900.sdhci
+#    symlink /dev/block/platform/soc/7864900.sdhci /dev/block/bootdevice
+#    chmod 0660 /dev/qseecom
+#    chown system drmrpc /dev/qseecom
+#    chmod 0664 /dev/ion
+#    chown system system /dev/ion
+#    install_keyring
+#
+#    wait /dev/block/bootdevice/by-name/persist
+#    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+#    restorecon_recursive /persist
+#    mkdir /persist/data 0700 system system
+
+ #   wait /dev/block/bootdevice/by-name/modem
+ #   mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+ #   symlink /firmware/image /vendor/firmware
+
+  #  setprop crypto.ready 1
+    
+# separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
+#service sbinqseecomd /sbin/qseecomd
+#    oneshot
+#    disabled
+#    user root
+#    group root
+#    seclabel u:r:recovery:s0
+
+#on property:ro.crypto.state=encrypted
+#    start sbinqseecomd
+
+
+# read ro.build.fingerprint from system, setprop it. for ota
+#service fingerprintid /init.fingerprintid.sh
+#    oneshot
+#    disabled
+#    user root
+#    group root
+#    seclabel u:r:recovery:s0
+
+#on late-init
+#    start fingerprintid
+#    # Enable double-tap to wake
+#    #write /proc/touchpanel/double_tap_enable 1
+
+
+on boot
+    # Enable Power modes and set the CPU Freq Sampling rates
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 300000
+    write /sys/module/msm_thermal/core_control/enabled 1
+    setprop recovery.perf.mode 0
+
+
+on property:recovery.perf.mode=1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 0
+
+on property:recovery.perf.mode=0
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+write /sys/devices/system/cpu/cpu7/online 0
