@@ -25,4 +25,7 @@ export VENDOR=meizu
 
 export DEVICE_BRINGUP_YEAR=2017
 
+export LOCAL_SDK_VERSION = 28
+export ALLOW_MISSING_DEPENDENCIES = true
+
 ./../../$VENDOR/$DEVICE_COMMON/setup-makefiles.sh $@
