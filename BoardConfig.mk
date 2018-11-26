@@ -137,5 +137,4 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_HAS_REBOOT_EDL := true
 
-#other add when build to fix some error without know =((( by thanhdatpd
-ALLOW_MISSING_DEPENDENCIES=true
+
