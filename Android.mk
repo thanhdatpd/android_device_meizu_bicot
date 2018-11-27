@@ -24,7 +24,7 @@
 # components.
 
 LOCAL_PATH := $(call my-dir)
-
+LOCAL_SDK_VERSION := 28
 ifeq ($(TARGET_DEVICE),bicot)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/wlan_mac.bin
@@ -36,7 +36,7 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
-
+LOCAL_SDK_VERSION := 28
 endif
 
 #just try fix
