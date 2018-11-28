@@ -17,7 +17,7 @@
 -include device/meizu/msm8953-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/meizu/bicot
-
+ALLOW_MISSING_DEPENDENCIES := TRUE 
 # Filesystem
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_RECOVERY_AS_BOOT := true
