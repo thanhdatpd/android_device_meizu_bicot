@@ -69,7 +69,7 @@ PRODUCT_PACKAGES += \
     init.goodix.sh \
     init.recovery.qcom.rc \
     init.recovery.qcom.usb.rc \
-    init.tissot.rc
+    init.bicot.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \
