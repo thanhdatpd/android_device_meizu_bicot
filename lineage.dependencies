@@ -11,11 +11,6 @@
   },
   {
     "remote": "github",
-    "repository": "thanhdatpd/android_vendor_meizu_msm8953-common",
-    "target_path": "vendor/meizu/msm8953-common"
-  },
-  {
-    "remote": "github",
     "repository": "thanhdatpd/android_vendor_meizu_bicot",
     "target_path": "vendor/meizu/bicot"
   }
