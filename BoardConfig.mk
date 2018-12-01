@@ -25,8 +25,9 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_KERNEL := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/meizu/bicot
-TARGET_KERNEL_CONFIG := bicot_defconfig
+# disable build for kernel
+#TARGET_KERNEL_SOURCE := kernel/meizu/bicot
+#TARGET_KERNEL_CONFIG := bicot_defconfig
 #build_test KERNEL_MAKE_FLAGS := CFLAGS_MODULE="-fno-pic"
 
 # Power
