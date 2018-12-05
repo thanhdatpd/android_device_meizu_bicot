@@ -1,14 +1,11 @@
-
-# Inherit from common msm8953-common
-#-include device/meizu/msm8953-common/BoardConfigCommon.mk
-
 DEVICE_PATH := device/meizu/bicot
 #ALLOW_MISSING_DEPENDENCIES := TRUE 
-# Filesystem
+
+
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_USES_RECOVERY_AS_BOOT := true
-#TARGET_NO_RECOVERY := flase
-TARGET_NO_KERNEL := true
+
+
+
 
 
 # Power
@@ -22,6 +19,7 @@ BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
 
 # Inherit from the proprietary version
 -include vendor/meizu/bicot/BoardConfigVendor.mk
@@ -54,11 +52,12 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
-TARGET_PREBUILT_KERNEL := device/meizu/m1721/prebuilt/zImage
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -69,6 +68,11 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 55276150784
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+
+
+# Workaround for error copying vendor files to recovery ramdisk
+TARGET_COPY_OUT_VENDOR := vendor
+
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -89,7 +93,6 @@ TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NTFS_3G := true
 TW_NO_USB_STORAGE := true
-TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
 TW_HAS_DOWNLOAD_MODE := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
@@ -99,6 +102,11 @@ TW_HAS_REBOOT_EDL := true
 #add when try fix building rom
 
 RECOVERY_VARIANT := twrp
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
+
+
 
 
 
@@ -227,9 +235,6 @@ TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8953
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Lineage Hardware
 BOARD_HARDWARE_CLASS += \
