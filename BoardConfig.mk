@@ -146,7 +146,7 @@ RECOVERY_VARIANT := twrp
 #just test, moved from msm8953-common to here
 ######################
 
-#VENDOR_PATH := device/meizu/bicot
+VENDOR_PATH := device/meizu/bicot
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
