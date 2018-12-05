@@ -17,9 +17,7 @@
 $(call inherit-product, vendor/meizu/bicot/bicot-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+
 
 # Inherit from msm8953-common
 $(call inherit-product, device/meizu/bicot/msm8953.mk)
