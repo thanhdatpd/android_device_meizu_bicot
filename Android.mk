@@ -27,7 +27,7 @@ LOCAL_PATH := $(call my-dir)
 LOCAL_SDK_VERSION := current
 #JAVA_SDK_ENFORCEMENT_WARNING := false
 JAVA_SDK_ENFORCEMENT_ERROR := flase
-ifeq ($(TARGET_DEVICE),bicot)
+##ifeq ($(TARGET_DEVICE),bicot)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 WCNSS_MAC_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/wlan_mac.bin
 $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
@@ -129,7 +129,7 @@ ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINK
 
 
 
-endif
+#endif
 
 #just try fix
 LOCAL_SDK_VERSION := 28
