@@ -21,7 +21,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
-TARGET_LIBINIT_MSM8953_DEFINES_FILE := device/meizu/msm8953-common/init/init_msm8953.cpp
+TARGET_LIBINIT_MSM8953_DEFINES_FILE := device/meizu/bicot/init/init_msm8953.cpp
 
 
 # Overlays
