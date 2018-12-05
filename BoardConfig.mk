@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Inherit from common msm8953-common
--include device/meizu/msm8953-common/BoardConfigCommon.mk
+#-include device/meizu/msm8953-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/meizu/bicot
 #ALLOW_MISSING_DEPENDENCIES := TRUE 
@@ -24,11 +24,6 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 #TARGET_NO_RECOVERY := flase
 TARGET_NO_KERNEL := true
 
-# Kernel
-# disable build for kernel
-#TARGET_KERNEL_SOURCE := kernel/meizu/bicot
-#TARGET_KERNEL_CONFIG := bicot_defconfig
-#build_test KERNEL_MAKE_FLAGS := CFLAGS_MODULE="-fno-pic"
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
@@ -98,7 +93,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
-TARGET_PREBUILT_KERNEL := device/meizu/bicot/prebuilt/zImage
+TARGET_PREBUILT_KERNEL := device/meizu/m1721/prebuilt/zImage
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
@@ -108,10 +103,10 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3999372
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 53996984
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 55276150784
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
 # Recovery
@@ -151,13 +146,13 @@ RECOVERY_VARIANT := twrp
 #just test, moved from msm8953-common to here
 ######################
 
-#VENDOR_PATH := device/meizu/msm8953-common
+#VENDOR_PATH := device/meizu/bicot
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
-#TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
 
-#TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
 
 
 TARGET_BOARD_SUFFIX := _64
@@ -265,19 +260,19 @@ TARGET_NO_RPC := true
 TARGET_EXFAT_DRIVER := sdfat
 
 # Filesystem
-#TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 
 # HIDL
-#DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-#DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Lineage Hardware
-#BOARD_HARDWARE_CLASS += \
-#    $(VENDOR_PATH)/lineagehw
+BOARD_HARDWARE_CLASS += \
+    $(VENDOR_PATH)/lineagehw
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
@@ -305,15 +300,15 @@ TARGET_USE_SDCLANG := true
 TARGET_RIL_VARIANT := caf
 
 # Recovery
-##ifeq ($(AB_OTA_UPDATER), true)
-#TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/fstab_AB.qcom
-#lse
-#TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/fstab.qcom
+#ifeq ($(AB_OTA_UPDATER), true)
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab_AB.qcom
+#else
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab.qcom
 #endif
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
