@@ -102,7 +102,7 @@ TW_HAS_REBOOT_EDL := true
 
 #add when try fix building rom
 
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
