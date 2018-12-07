@@ -29,7 +29,7 @@ $(call inherit-product, device/meizu/bicot/device.mk)
 
 # Kernel
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/zImage:kernel
+	device/meizu/bicot/prebuilt/Image.gz-dtb:kernel
 
 
 # Device identifier. This must come after all inclusions
