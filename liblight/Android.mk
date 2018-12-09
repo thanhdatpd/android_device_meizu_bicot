@@ -28,7 +28,7 @@ LOCAL_CLANG  := true
 LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
-ifneq (,$(filter tissot,$(TARGET_DEVICE)))
+ifneq (,$(filter bicot,$(TARGET_DEVICE)))
     LOCAL_CFLAGS += -DWHITE_LED
 endif
 
