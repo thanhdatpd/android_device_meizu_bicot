@@ -111,6 +111,19 @@
 /******************************************************************************
  * TYPES
  ******************************************************************************/
+
+
+//try to fix error
+
+#ifdef __cplusplus 
+extern "C" { 
+#endif 
+extern int property_get(const char *key, char *value, const char *default_value); 
+#ifdef __cplusplus 
+} 
+#endif 
+
+
 using namespace std;
 enum gpt_state {
     GPT_OK = 0,
