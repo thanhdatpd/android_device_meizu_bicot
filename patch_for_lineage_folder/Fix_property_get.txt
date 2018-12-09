@@ -1,0 +1,23 @@
+try fix undefined reference to ''::
+
+HAVE_ANDROID_OS and HAVE_LIBC_SYSTEM_PROPERTIES can be 
+
+modified with android.mk: 
+LOCAL_SHARED_LIBRARIES := libcutils 
+
+cpp code modification: 
+#ifdef __cplusplus 
+extern "C" { 
+#endif 
+extern int property_get(const char *key, char *value, const char *default_value); 
+#ifdef __cplusplus 
+} 
+#endif 
+........ 
+#ifdef HAVE_ANDROID_OS 
+...... 
+property_get("gsm.sim.operator.matchnum", minMatch, "7"); 
+...... 
+#else 
+return 7; 
+#endif
