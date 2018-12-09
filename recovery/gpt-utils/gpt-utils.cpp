@@ -724,13 +724,13 @@ error:
 
 int gpt_utils_is_ufs_device()
 {
-   // char bootdevice[PROPERTY_VALUE_MAX] = {0};
-  //  property_get("ro.boot.bootdevice", bootdevice, "N/A");
-  //  if (strlen(bootdevice) < strlen(".ufshc") + 1)
+    char bootdevice[PROPERTY_VALUE_MAX] = {0};
+   property_get("ro.boot.bootdevice", bootdevice, "N/A");
+    if (strlen(bootdevice) < strlen(".ufshc") + 1)
         return 0;
-   // return (!strncmp(&bootdevice[strlen(bootdevice) - strlen(".ufshc")],
-   //                         ".ufshc",
-    //                        sizeof(".ufshc")));
+    return (!strncmp(&bootdevice[strlen(bootdevice) - strlen(".ufshc")],
+                           ".ufshc",
+                            sizeof(".ufshc")));
     
 }
 //dev_path is the path to the block device that contains the GPT image that
