@@ -119,9 +119,7 @@
 extern "C" { 
 #endif 
 extern int property_get(const char *key, char *value, const char *default_value); 
-#ifdef __cplusplus 
-} 
-#endif 
+
 
 
 using namespace std;
@@ -746,6 +744,11 @@ int gpt_utils_is_ufs_device()
                             sizeof(".ufshc")));
     
 }
+        
+ #ifdef __cplusplus 
+} 
+#endif 
+#endif
 //dev_path is the path to the block device that contains the GPT image that
 //needs to be updated. This would be the device which holds one or more critical
 //boot partitions and their backups. In the case of EMMC this function would
