@@ -111,13 +111,6 @@
 /******************************************************************************
  * TYPES
  ******************************************************************************/
-
-
-//try to fix error
-
-
-
-
 using namespace std;
 enum gpt_state {
     GPT_OK = 0,
@@ -729,28 +722,16 @@ error:
         return -1;
 }
 
-
-#ifdef __cplusplus 
-extern "C" { 
-#endif 
-
-
 int gpt_utils_is_ufs_device()
 {
     char bootdevice[PROPERTY_VALUE_MAX] = {0};
-   property_get("ro.boot.bootdevice", bootdevice, "N/A");
+    property_get("ro.boot.bootdevice", bootdevice, "N/A");
     if (strlen(bootdevice) < strlen(".ufshc") + 1)
         return 0;
     return (!strncmp(&bootdevice[strlen(bootdevice) - strlen(".ufshc")],
-                           ".ufshc",
+                            ".ufshc",
                             sizeof(".ufshc")));
-    
 }
-        
- #ifdef __cplusplus 
-} 
-#endif 
-
 //dev_path is the path to the block device that contains the GPT image that
 //needs to be updated. This would be the device which holds one or more critical
 //boot partitions and their backups. In the case of EMMC this function would
@@ -1071,7 +1052,7 @@ int prepare_boot_update(enum boot_update_stage stage)
 
 //Given a parttion name(eg: rpm) get the path to the block device that
 //represents the GPT disk the partition resides on. In the case of emmc it
-//would be the default emmc dev(/dev/block/mmcblk0). In the case of UFS we look
+//would be the default emmc dev(/dev/mmcblk0). In the case of UFS we look
 //through the /dev/block/bootdevice/by-name/ tree for partname, and resolve
 //the path to the LUN from there.
 static int get_dev_path_from_partition_name(const char *partname,
@@ -1100,7 +1081,7 @@ static int get_dev_path_from_partition_name(const char *partname,
                         buf[PATH_TRUNCATE_LOC] = '\0';
                 }
         } else {
-                snprintf(buf, buflen, BLK_DEV_FILE);
+                snprintf(buf, buflen, "/dev/mmcblk0");
         }
         return 0;
 
