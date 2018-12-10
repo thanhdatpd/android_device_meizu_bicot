@@ -115,10 +115,6 @@
 
 //try to fix error
 
-#ifdef __cplusplus 
-extern "C" { 
-#endif 
-extern int property_get(const char *key, char *value, const char *default_value); 
 
 
 
@@ -733,6 +729,12 @@ error:
         return -1;
 }
 
+
+#ifdef __cplusplus 
+extern "C" { 
+#endif 
+
+
 int gpt_utils_is_ufs_device()
 {
     char bootdevice[PROPERTY_VALUE_MAX] = {0};
@@ -748,7 +750,7 @@ int gpt_utils_is_ufs_device()
  #ifdef __cplusplus 
 } 
 #endif 
-#endif
+
 //dev_path is the path to the block device that contains the GPT image that
 //needs to be updated. This would be the device which holds one or more critical
 //boot partitions and their backups. In the case of EMMC this function would
