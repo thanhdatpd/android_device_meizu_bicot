@@ -49,9 +49,9 @@ PRODUCT_PACKAGES_DEBUG += \
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8953 \
-#    libgptutils \
     libz
 
+#    libgptutils \
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
