@@ -49,7 +49,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.msm8953 \
-    libgptutils \
+#    libgptutils \
     libz
 
 # Audio configuration
