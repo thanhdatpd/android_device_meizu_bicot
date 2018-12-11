@@ -41,15 +41,15 @@ PRODUCT_PACKAGES += \
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    bootctrl.msm8953 
+    android.hardware.boot@1.0-service 
+ #   bootctrl.msm8953 
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.msm8953 \
-    libz
+#PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+#    bootctrl.msm8953 \
+#   libz
 
 #    libgptutils \
 # Audio configuration
