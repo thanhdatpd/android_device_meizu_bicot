@@ -39,9 +39,9 @@ PRODUCT_PACKAGES += \
     otapreopt_script
 
 # Boot control
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service 
+#PRODUCT_PACKAGES += \
+#    android.hardware.boot@1.0-impl \
+#    android.hardware.boot@1.0-service 
  #   bootctrl.msm8953 
 
 PRODUCT_PACKAGES_DEBUG += \
@@ -84,5 +84,5 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
 # Verity
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
-$(call inherit-product, build/target/product/verity.mk)
+#PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
+#$(call inherit-product, build/target/product/verity.mk)
