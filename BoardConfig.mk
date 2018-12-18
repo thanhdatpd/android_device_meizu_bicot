@@ -56,10 +56,10 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
 TARGET_PREBUILT_KERNEL := device/meizu/bicot/prebuilt/Image.gz-dtb
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/meizu/bicot
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#TARGET_KERNEL_ARCH := arm64
+#TARGET_KERNEL_HEADER_ARCH := arm64
+#TARGET_KERNEL_SOURCE := kernel/meizu/bicot
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
@@ -67,7 +67,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Encryption
-TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_HW_DISK_ENCRYPTION := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -108,7 +108,6 @@ TW_HAS_REBOOT_EDL := true
 
 #add when try fix building rom
 
-#RECOVERY_VARIANT := twrp
 
 # Debug
 TWRP_INCLUDE_LOGCAT := true
@@ -273,11 +272,9 @@ TARGET_USE_SDCLANG := true
 TARGET_RIL_VARIANT := caf
 
 # Recovery
-#ifeq ($(AB_OTA_UPDATER), true)
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab_AB.qcom
-#else
+
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab.qcom
-#endif
+
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
