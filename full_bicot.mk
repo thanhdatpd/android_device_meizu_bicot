@@ -28,8 +28,8 @@ $(call inherit-product, device/meizu/bicot/device.mk)
 
 
 # Kernel
-PRODUCT_COPY_FILES += \
-	device/meizu/bicot/prebuilt/Image.gz-dtb:kernel
+#PRODUCT_COPY_FILES += \
+#	device/meizu/bicot/prebuilt/Image.gz-dtb:kernel
 
 
 # Device identifier. This must come after all inclusions
