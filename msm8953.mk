@@ -163,8 +163,8 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.0_vendor
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    XiaomiDoze
+#PRODUCT_PACKAGES += \
+ #   XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -178,9 +178,9 @@ PRODUCT_PACKAGES += \
     libebtc
 
 # FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    libfmjni
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -228,8 +228,8 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 
 # IRQ
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+#PRODUCT_COPY_FILES += \
+#   $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # IRSC
 PRODUCT_COPY_FILES += \
