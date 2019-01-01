@@ -1,3 +1,19 @@
+
+just goto file error, skip func call property_get or remove that. have a nice day
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 try fix undefined reference to ''::
 
 HAVE_ANDROID_OS and HAVE_LIBC_SYSTEM_PROPERTIES can be 
