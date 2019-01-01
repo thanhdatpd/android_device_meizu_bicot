@@ -50,21 +50,21 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-TARGET_NO_KERNEL := true
+#TARGET_NO_KERNEL := true
 #BUILD_KERNEL_MODULES := flase
-#BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive buildvariant=eng
-#BOARD_KERNEL_BASE := 0x80000000
-#BOARD_KERNEL_PAGESIZE := 4096
-#BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-#BOARD_RAMDISK_OFFSET     := 0x01000000
-#TARGET_PREBUILT_KERNEL := device/meizu/bicot/prebuilt/Image.gz-dtb
-#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive buildvariant=eng
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET     := 0x01000000
+TARGET_PREBUILT_KERNEL := device/meizu/bicot/prebuilt/Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 #TARGET_KERNEL_ARCH := arm64
 #TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_SOURCE := kernel/meizu/bicot
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 #KERNEL_MAKE_FLAGS :=
-#KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
+KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
