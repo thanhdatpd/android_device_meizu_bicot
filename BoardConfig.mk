@@ -5,7 +5,7 @@ RECOVERY_VARIANT := twrp
 WITHOUT_CHECK_API := true
 
 
-#BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 
 
@@ -20,8 +20,8 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 # Root Folders
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
-# Sepolicy/ removed
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+# Sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 
 # Inherit from the proprietary version
@@ -166,7 +166,7 @@ AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := false
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
-#USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 
 
@@ -283,7 +283,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab.qcom
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
