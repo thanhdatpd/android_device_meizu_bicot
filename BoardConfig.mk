@@ -28,7 +28,9 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 -include vendor/meizu/bicot/BoardConfigVendor.mk
 
 
-
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
 TARGET_OTA_ASSERT_DEVICE := m6note,m6n,m1721,M1721,M6Note,bicot
 
