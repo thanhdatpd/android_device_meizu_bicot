@@ -18,7 +18,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Root Folders
-BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
+#BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
@@ -192,7 +192,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 #ENABLE_CPUSETS := true
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := false
 
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
