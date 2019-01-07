@@ -85,8 +85,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
 
 # Workaround for error copying vendor files to recovery ramdisk
-TARGET_COPY_OUT_VENDOR := vendor
-
+TARGET_COPY_OUT_VENDOR := system/vendor
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
