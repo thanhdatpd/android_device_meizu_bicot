@@ -26,8 +26,8 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Inherit from the proprietary version
 -include vendor/meizu/bicot/BoardConfigVendor.mk
-USE_LEGACY_AUDIO_POLICY := 0
-
+USE_LEGACY_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY :=0
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
