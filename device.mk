@@ -15,7 +15,7 @@
 #
 
 $(call inherit-product, vendor/meizu/bicot/bicot-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
 
 
 
