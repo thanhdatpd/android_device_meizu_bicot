@@ -37,7 +37,7 @@ $(WCNSS_MAC_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /persist/$(notdir $@) $@
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK) $(WCNSS_MAC_SYMLINK)
 
-LOCAL_SDK_VERSION := 28
+LOCAL_SDK_VERSION := 25
 
 
 # for common, just moved from msm8953-common to here
