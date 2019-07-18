@@ -255,8 +255,8 @@ DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += \
-    $(VENDOR_PATH)/lineagehw
+#BOARD_HARDWARE_CLASS += \
+ #   $(VENDOR_PATH)/lineagehw
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
