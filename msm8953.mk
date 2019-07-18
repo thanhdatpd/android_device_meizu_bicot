@@ -25,7 +25,7 @@ TARGET_LIBINIT_MSM8953_DEFINES_FILE := device/meizu/bicot/init/init_msm8953.cpp
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     Bluetooth \
@@ -247,8 +247,8 @@ PRODUCT_PACKAGES += \
     lights.msm8953
 
 # LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm
+#PRODUCT_PACKAGES += \
+ #   vendor.lineage.livedisplay@1.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
