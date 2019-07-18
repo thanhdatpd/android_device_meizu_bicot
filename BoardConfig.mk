@@ -55,6 +55,7 @@ TARGET_NO_BOOTLOADER := true
 #TARGET_NO_KERNEL := true
 #BUILD_KERNEL_MODULES := flase
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive buildvariant=eng
+BOARD_KERNEL_CMDLINE += earlyprintk=nologger loglevel=8
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -71,7 +72,7 @@ KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+#TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
 
 # Encryption
 #TARGET_HW_DISK_ENCRYPTION := true
