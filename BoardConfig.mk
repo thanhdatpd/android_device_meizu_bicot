@@ -7,7 +7,7 @@ WITHOUT_CHECK_API := true
 
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
-
+BOARD_NO_WIFI_HAL := true
 
 
 
