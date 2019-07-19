@@ -192,9 +192,8 @@ USE_XML_AUDIO_POLICY_CONF := 1
 
 
 # Bluetooth
-#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
-#BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_QCOM := true
+BOARD_HAVE_BLUETOOTH := false
+BOARD_HAVE_BLUETOOTH_QCOM := false
 #BLUETOOTH_HCI_USE_MCT := true
 
 # Camera
@@ -261,11 +260,11 @@ TARGET_NO_RPC := true
 #TARGET_EXFAT_DRIVER := sdfat
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
+#TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
+#DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+#DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
 
 # Lineage Hardware
@@ -276,7 +275,7 @@ DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 TARGET_PROVIDES_KEYMASTER := true
 
 # Lights
-TARGET_PROVIDES_LIBLIGHT := true
+#TARGET_PROVIDES_LIBLIGHT := true
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
