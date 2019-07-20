@@ -11,11 +11,11 @@ audio.offload.min.duration.secs=30 \
 audio.offload.video=true \
 ro.vendor.audio.sdk.fluencetype=fluence \
 ro.vendor.audio.sdk.ssr=false \
-vendor.voice.conc.fallbackpath=deep-buffer \
-vendor.voice.path.for.pcm.voip=true \
-vendor.voice.playback.conc.disabled=true \
+#vendor.voice.conc.fallbackpath=deep-buffer \
+#vendor.voice.path.for.pcm.voip=true \
+
 #vendor.voice.record.conc.disabled=false \
-vendor.voice.voip.conc.disabled=true
+#vendor.voice.voip.conc.disabled=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
