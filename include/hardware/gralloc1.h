@@ -18,7 +18,7 @@
 #define ANDROID_HARDWARE_GRALLOC1_H
 
 #include <hardware/hardware.h>
-#include <cutils/native_handle.h>
+#include <system/window.h>
 
 __BEGIN_DECLS
 
@@ -36,19 +36,7 @@ typedef enum {
      * allocate may be NULL, which instructs the device to report whether the
      * given allocation is possible or not. */
     GRALLOC1_CAPABILITY_TEST_ALLOCATE = 1,
-
-    /* If this capability is supported, then the implementation supports
-     * allocating buffers with more than one image layer. */
-    GRALLOC1_CAPABILITY_LAYERED_BUFFERS = 2,
-
-    /* If this capability is supported, then the implementation always closes
-     * and deletes a buffer handle whenever the last reference is removed.
-     *
-     * Supporting this capability is strongly recommended.  It will become
-     * mandatory in future releases. */
-    GRALLOC1_CAPABILITY_RELEASE_IMPLY_DELETE = 3,
-
-    GRALLOC1_LAST_CAPABILITY = 3,
+    GRALLOC1_LAST_CAPABILITY = 1,
 } gralloc1_capability_t;
 
 typedef enum {
@@ -83,7 +71,7 @@ typedef enum {
     GRALLOC1_CONSUMER_USAGE_FOREIGN_BUFFERS = 1ULL << 21,
 
     /* 1ULL << 22 */
-    GRALLOC1_CONSUMER_USAGE_GPU_DATA_BUFFER = 1ULL << 23,
+    /* 1ULL << 23 */
     /* 1ULL << 24 */
     /* 1ULL << 25 */
     /* 1ULL << 26 */
@@ -153,12 +141,12 @@ typedef enum {
     GRALLOC1_FUNCTION_LOCK = 18,
     GRALLOC1_FUNCTION_LOCK_FLEX = 19,
     GRALLOC1_FUNCTION_UNLOCK = 20,
-    GRALLOC1_FUNCTION_SET_LAYER_COUNT = 21,
-    GRALLOC1_FUNCTION_GET_LAYER_COUNT = 22,
-    GRALLOC1_FUNCTION_VALIDATE_BUFFER_SIZE = 23,
-    GRALLOC1_FUNCTION_GET_TRANSPORT_SIZE = 24,
-    GRALLOC1_FUNCTION_IMPORT_BUFFER = 25,
-    GRALLOC1_LAST_FUNCTION = 25,
+#ifdef EXYNOS4_ENHANCEMENTS
+    GRALLOC1_FUNCTION_GETPHYS = 21,
+    GRALLOC1_LAST_FUNCTION = 21,
+#else
+    GRALLOC1_LAST_FUNCTION = 20,
+#endif
 } gralloc1_function_descriptor_t;
 
 typedef enum {
@@ -205,7 +193,7 @@ typedef enum {
     /* 1ULL << 20 */
     /* 1ULL << 21 */
     GRALLOC1_PRODUCER_USAGE_VIDEO_DECODER = 1ULL << 22,
-    GRALLOC1_PRODUCER_USAGE_SENSOR_DIRECT_DATA = 1ULL << 23,
+    /* 1ULL << 23 */
     /* 1ULL << 24 */
     /* 1ULL << 25 */
     /* 1ULL << 26 */
@@ -307,7 +295,7 @@ typedef struct gralloc1_device {
 static inline int gralloc1_open(const struct hw_module_t* module,
         gralloc1_device_t** device) {
     return module->methods->open(module, GRALLOC_HARDWARE_MODULE_ID,
-            TO_HW_DEVICE_T_OPEN(device));
+            (struct hw_device_t**) device);
 }
 
 static inline int gralloc1_close(gralloc1_device_t* device) {
@@ -457,30 +445,6 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_SET_FORMAT)(
         gralloc1_device_t* device, gralloc1_buffer_descriptor_t descriptor,
         int32_t /*android_pixel_format_t*/ format);
 
-/* setLayerCount(..., layerCount)
- * Function descriptor: GRALLOC1_FUNCTION_SET_LAYER_COUNT
- * Must be provided by all gralloc1 devices that provide the
- * GRALLOC1_CAPABILITY_LAYERED_BUFFERS capability.
- *
- * Sets the number of layers in the buffer.
- *
- * A buffer with multiple layers may be used as the backing store of an array
- * texture. All layers of a buffer share the same characteristics (e.g.,
- * dimensions, format, usage). Devices that do not support
- * GRALLOC1_CAPABILITY_LAYERED_BUFFERS must allocate only buffers with a single
- * layer.
- *
- * Parameters:
- *   layerCount - the desired number of layers, must be non-zero
- *
- * Returns GRALLOC1_ERROR_NONE or one of the following errors:
- *   GRALLOC1_ERROR_BAD_DESCRIPTOR - the buffer descriptor is invalid
- *   GRALLOC1_ERROR_BAD_VALUE - the layer count is invalid
- */
-typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_SET_LAYER_COUNT)(
-        gralloc1_device_t* device, gralloc1_buffer_descriptor_t descriptor,
-        uint32_t layerCount);
-
 /* setProducerUsage(..., usage)
  * Function descriptor: GRALLOC1_FUNCTION_SET_PRODUCER_USAGE
  * Must be provided by all gralloc1 devices
@@ -605,28 +569,6 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GET_FORMAT)(
         gralloc1_device_t* device, buffer_handle_t descriptor,
         int32_t* outFormat);
 
-/* getLayerCount(..., outLayerCount)
- * Function descriptor: GRALLOC1_FUNCTION_GET_LAYER_COUNT
- * Must be provided by all gralloc1 devices that provide the
- * GRALLOC1_CAPABILITY_LAYERED_BUFFERS capability.
- *
- * Gets the number of layers of the buffer.
- *
- * See setLayerCount for more information about this value.
- *
- * Parameters:
- *   outLayerCount - the number of layers in the image, must be non-NULL
- *
- * Returns GRALLOC1_ERROR_NONE or one of the following errors:
- *   GRALLOC1_ERROR_BAD_HANDLE - the buffer handle is invalid
- *   GRALLOC1_ERROR_UNSUPPORTED - the device is unable to retrieve the
- *       layer count from the buffer; see note [1] in this section's header for
- *       more information
- */
-typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GET_LAYER_COUNT)(
-        gralloc1_device_t* device, buffer_handle_t buffer,
-        uint32_t* outLayerCount);
-
 /* getProducerUsage(..., outUsage)
  * Function descriptor: GRALLOC1_FUNCTION_GET_PRODUCER_USAGE
  * Must be provided by all gralloc1 devices
@@ -672,65 +614,6 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GET_PRODUCER_USAGE)(
  */
 typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GET_STRIDE)(
         gralloc1_device_t* device, buffer_handle_t buffer, uint32_t* outStride);
-
-/* getTransportSize(..., outNumFds, outNumInts)
- * Function descriptor: GRALLOC1_FUNCTION_GET_TRANSPORT_SIZE
- * This function is optional for all gralloc1 devices.
- *
- * Get the transport size of a buffer. An imported buffer handle is a raw
- * buffer handle with the process-local runtime data appended. This
- * function, for example, allows a caller to omit the process-local
- * runtime data at the tail when serializing the imported buffer handle.
- *
- * Note that a client might or might not omit the process-local runtime
- * data when sending an imported buffer handle. The mapper must support
- * both cases on the receiving end.
- *
- * Parameters:
- *   outNumFds - the number of file descriptors needed for transport
- *   outNumInts - the number of integers needed for transport
- *
- * Returns GRALLOC1_ERROR_NONE or one of the following errors:
- *   GRALLOC1_ERROR_BAD_HANDLE - the buffer handle is invalid
- *   GRALLOC1_ERROR_UNSUPPORTED - the device is unable to retrieve the numFds
- *       and numInts; see note [1] in this section's header for more information
- */
-typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GET_TRANSPORT_SIZE)(
-        gralloc1_device_t* device, buffer_handle_t buffer, uint32_t *outNumFds,
-        uint32_t *outNumInts);
-
-typedef struct gralloc1_buffer_descriptor_info {
-    uint32_t width;
-    uint32_t height;
-    uint32_t layerCount;
-    int32_t /*android_pixel_format_t*/ format;
-    uint64_t producerUsage;
-    uint64_t consumerUsage;
-} gralloc1_buffer_descriptor_info_t;
-
-/* validateBufferSize(..., )
- * Function descriptor: GRALLOC1_FUNCTION_VALIDATE_BUFFER_SIZE
- * This function is optional for all gralloc1 devices.
- *
- * Validate that the buffer can be safely accessed by a caller who assumes
- * the specified descriptorInfo and stride. This must at least validate
- * that the buffer size is large enough. Validating the buffer against
- * individual buffer attributes is optional.
- *
- * Parameters:
- *   descriptor - specifies the attributes of the buffer
- *   stride - the buffer stride returned by IAllocator::allocate
- *
- * Returns GRALLOC1_ERROR_NONE or one of the following errors:
- *   GRALLOC1_ERROR_BAD_HANDLE - the buffer handle is invalid
- *   GRALLOC1_ERROR_BAD_VALUE - when buffer cannot be safely accessed
- *   GRALLOC1_ERROR_UNSUPPORTED - the device is unable to validate the buffer
- *       size; see note [1] in this section's header for more information
- */
-typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_VALIDATE_BUFFER_SIZE)(
-        gralloc1_device_t* device, buffer_handle_t buffer,
-        const gralloc1_buffer_descriptor_info_t* descriptorInfo,
-        uint32_t stride);
 
 /*
  * Buffer management functions
@@ -785,37 +668,6 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_ALLOCATE)(
         const gralloc1_buffer_descriptor_t* descriptors,
         buffer_handle_t* outBuffers);
 
-/* importBuffer(..., rawHandle, outBuffer);
- * Function descriptor: GRALLOC1_FUNCTION_IMPORT_BUFFER
- * This function is optional for all gralloc1 devices.
- * When supported, GRALLOC1_CAPABILITY_RELEASE_IMPLY_DELETE must also be
- * supported.
- *
- * Explictly imports a buffer into a proccess.
- *
- * This function can be called in place of retain when a raw buffer handle is
- * received by a remote process. Import producess a import handle that can
- * be used to access the underlying graphic buffer. The new import handle has a
- * ref count of 1.
- *
- * This function must at least validate the raw handle before creating the
- * imported handle. It must also support importing the same raw handle
- * multiple times to create multiple imported handles. The imported handle
- * must be considered valid everywhere in the process.
- *
- * Parameters:
- *   rawHandle - the raw buffer handle to import
- *   outBuffer - a handle to the newly imported buffer
- *
- * Returns GRALLOC1_ERROR_NONE or one of the following errors:
- *   GRALLOC1_ERROR_BAD_HANDLE - the buffer handle is invalid
- *   GRALLOC1_ERROR_NO_RESOURCES - it is not possible to add a import to this
- *       buffer at this time
- */
-typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_IMPORT_BUFFER)(
-        gralloc1_device_t* device, const buffer_handle_t rawHandle,
-        buffer_handle_t* outBuffer);
-
 /* retain(..., buffer)
  * Function descriptor: GRALLOC1_FUNCTION_RETAIN
  * Must be provided by all gralloc1 devices
@@ -848,12 +700,6 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_RETAIN)(
  * If no references remain, the buffer should be freed. When the last buffer
  * referring to a particular backing store is freed, that backing store should
  * also be freed.
- *
- * When GRALLOC1_CAPABILITY_RELEASE_IMPLY_DELETE is supported,
- * native_handle_close and native_handle_delete must always be called by the
- * implementation whenever the last reference is removed.  Otherwise, a call
- * to release() will be followed by native_handle_close and native_handle_delete
- * by the caller when the buffer is not allocated locally through allocate().
  *
  * Parameters:
  *   buffer - the buffer from which a reference should be removed
@@ -1040,6 +886,12 @@ typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_LOCK_FLEX)(
 typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_UNLOCK)(
         gralloc1_device_t* device, buffer_handle_t buffer,
         int32_t* outReleaseFence);
+
+#ifdef EXYNOS4_ENHANCEMENTS
+typedef int32_t /*gralloc1_error_t*/ (*GRALLOC1_PFN_GETPHYS)(
+        gralloc1_device_t* device, buffer_handle_t buffer,
+        void **paddr);
+#endif
 
 __END_DECLS
 

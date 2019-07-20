@@ -19,7 +19,6 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include <float.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
 

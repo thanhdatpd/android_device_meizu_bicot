@@ -286,6 +286,11 @@ typedef struct hwc_layer_1 {
              * their origin is the top-left corner.
              */
             hwc_region_t surfaceDamage;
+
+#ifdef QTI_BSP
+            /* Color for Dim Layer */
+            hwc_color_t color;
+#endif
         };
     };
 
@@ -481,7 +486,6 @@ typedef struct hwc_module {
     struct hw_module_t common;
 } hwc_module_t;
 
-#define HWC_ERROR (-1)
 typedef struct hwc_composer_device_1 {
     /**
      * Common methods of the hardware composer device.  This *must* be the first member of
@@ -715,9 +719,9 @@ typedef struct hwc_composer_device_1 {
      * (*getActiveConfig)() returns the index of the configuration that is
      * currently active on the connected display. The index is relative to
      * the list of configuration handles returned by getDisplayConfigs. If there
-     * is no active configuration, HWC_ERROR shall be returned.
+     * is no active configuration, -1 shall be returned.
      *
-     * Returns the configuration index on success or HWC_ERROR on error.
+     * Returns the configuration index on success or -1 on error.
      *
      * This field is REQUIRED for HWC_DEVICE_API_VERSION_1_4 and later.
      * It shall be NULL for previous versions.
@@ -784,7 +788,7 @@ typedef struct hwc_composer_device_1 {
 static inline int hwc_open_1(const struct hw_module_t* module,
         hwc_composer_device_1_t** device) {
     return module->methods->open(module,
-            HWC_HARDWARE_COMPOSER, TO_HW_DEVICE_T_OPEN(device));
+            HWC_HARDWARE_COMPOSER, (struct hw_device_t**)device);
 }
 
 static inline int hwc_close_1(hwc_composer_device_1_t* device) {

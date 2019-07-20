@@ -112,8 +112,6 @@ typedef enum {
     KM_TAG_ALLOW_WHILE_ON_BODY = KM_BOOL | 506, /* Allow key to be used after authentication timeout
                                                  * if device is still on-body (requires secure
                                                  * on-body sensor. */
-    KM_TAG_UNLOCKED_DEVICE_REQUIRED = KM_BOOL | 508, /* Require the device screen to be unlocked if the
-                                                      * key is used. */
 
     /* Application access control */
     KM_TAG_ALL_APPLICATIONS = KM_BOOL | 600, /* Specified to indicate key is usable by all
@@ -137,26 +135,6 @@ typedef enum {
     KM_TAG_OS_PATCHLEVEL = KM_UINT | 706,          /* Patch level of system (keymaster2) */
     KM_TAG_UNIQUE_ID = KM_BYTES | 707,             /* Used to provide unique ID in attestation */
     KM_TAG_ATTESTATION_CHALLENGE = KM_BYTES | 708, /* Used to provide challenge in attestation */
-    KM_TAG_ATTESTATION_APPLICATION_ID = KM_BYTES | 709, /* Used to identify the set of possible
-                                                         * applications of which one has initiated
-                                                         * a key attestation */
-    KM_TAG_ATTESTATION_ID_BRAND = KM_BYTES | 710,  /* Used to provide the device's brand name to be
-                                                      included in attestation */
-    KM_TAG_ATTESTATION_ID_DEVICE = KM_BYTES | 711, /* Used to provide the device's device name to be
-                                                      included in attestation */
-    KM_TAG_ATTESTATION_ID_PRODUCT = KM_BYTES | 712, /* Used to provide the device's product name to
-                                                       be included in attestation */
-    KM_TAG_ATTESTATION_ID_SERIAL = KM_BYTES | 713, /* Used to provide the device's serial number to
-                                                      be included in attestation */
-    KM_TAG_ATTESTATION_ID_IMEI = KM_BYTES | 714,   /* Used to provide the device's IMEI to be
-                                                      included in attestation */
-    KM_TAG_ATTESTATION_ID_MEID = KM_BYTES | 715,   /* Used to provide the device's MEID to be
-                                                      included in attestation */
-    KM_TAG_ATTESTATION_ID_MANUFACTURER = KM_BYTES | 716, /* Used to provide the device's
-                                                            manufacturer name to be included in
-                                                            attestation */
-    KM_TAG_ATTESTATION_ID_MODEL = KM_BYTES | 717,  /* Used to provide the device's model name to be
-                                                      included in attestation */
 
     /* Tags used only to provide data to or receive data from operations */
     KM_TAG_ASSOCIATED_DATA = KM_BYTES | 1000, /* Used to provide associated data for AEAD modes. */
@@ -170,6 +148,15 @@ typedef enum {
     KM_TAG_RESET_SINCE_ID_ROTATION = KM_BOOL | 1004, /* Whether the device has beeen factory reset
                                                         since the last unique ID rotation.  Used for
                                                         key attestation. */
+    KM_TAG_SOTER_IS_FROM_SOTER = KM_BOOL | 11000,
+    KM_TAG_SOTER_IS_AUTO_SIGNED_WITH_ATTK_WHEN_GET_PUBLIC_KEY = KM_BOOL | 11001,
+    KM_TAG_SOTER_IS_AUTO_SIGNED_WITH_COMMON_KEY_WHEN_GET_PUBLIC_KEY = KM_BOOL| 11002,
+    KM_TAG_SOTER_AUTO_SIGNED_COMMON_KEY_WHEN_GET_PUBLIC_KEY = KM_BYTES | 11003,
+    KM_TAG_SOTER_AUTO_ADD_COUNTER_WHEN_GET_PUBLIC_KEY = KM_BOOL | 11004,
+    KM_TAG_SOTER_IS_SECMSG_FID_COUNTER_SIGNED_WHEN_SIGN = KM_BOOL | 11005,
+    KM_TAG_SOTER_USE_NEXT_ATTK = KM_BOOL | 11006,
+    KM_TAG_SOTER_UID = KM_UINT | 11007,
+    KM_TAG_SOTER_AUTO_SIGNED_COMMON_KEY_WHEN_GET_PUBLIC_KEY_BLOB = KM_BYTES | 11008,
 } keymaster_tag_t;
 
 /**
@@ -184,7 +171,6 @@ typedef enum {
 
     /* Block ciphers algorithms */
     KM_ALGORITHM_AES = 32,
-    KM_ALGORITHM_TRIPLE_DES = 33,
 
     /* MAC algorithms */
     KM_ALGORITHM_HMAC = 128,
@@ -299,8 +285,6 @@ typedef enum {
     KM_PURPOSE_SIGN = 2,       /* Usable with RSA, EC and HMAC keys. */
     KM_PURPOSE_VERIFY = 3,     /* Usable with RSA, EC and HMAC keys. */
     KM_PURPOSE_DERIVE_KEY = 4, /* Usable with EC keys. */
-    KM_PURPOSE_WRAP = 5,       /* Usable with wrapped keys. */
-
 } keymaster_purpose_t;
 
 typedef struct {
@@ -452,14 +436,13 @@ typedef enum {
     KM_ERROR_KEY_REQUIRES_UPGRADE = -62,
     KM_ERROR_ATTESTATION_CHALLENGE_MISSING = -63,
     KM_ERROR_KEYMASTER_NOT_CONFIGURED = -64,
-    KM_ERROR_ATTESTATION_APPLICATION_ID_MISSING = -65,
-    KM_ERROR_CANNOT_ATTEST_IDS = -66,
-    KM_ERROR_DEVICE_LOCKED = -72,
 
     KM_ERROR_UNIMPLEMENTED = -100,
     KM_ERROR_VERSION_MISMATCH = -101,
 
     KM_ERROR_UNKNOWN_ERROR = -1000,
+
+    KM_ERROR_SOTER_ERROR = -10000,
 } keymaster_error_t;
 
 /* Convenience functions for manipulating keymaster tag types */

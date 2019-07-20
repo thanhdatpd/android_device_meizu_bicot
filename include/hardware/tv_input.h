@@ -23,7 +23,7 @@
 
 #include <hardware/hardware.h>
 #include <system/audio.h>
-#include <cutils/native_handle.h>
+#include <system/window.h>
 
 __BEGIN_DECLS
 
