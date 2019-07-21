@@ -28,6 +28,9 @@ inline unsigned int roundUpToPageSize(unsigned int x) {
     return (x + (getpagesize()-1)) & ~(getpagesize()-1);
 }
 
+//for fix error
+#define GRALLOC_USAGE_PRIVATE_WFD GRALLOC1_CONSUMER_USAGE_PRIVATE_WFD
+
 /* Gralloc usage bits indicating the type of allocation that should be used */
 /* Refer gralloc1_producer_usage_t & gralloc1_consumer_usage-t in gralloc1.h */
 
