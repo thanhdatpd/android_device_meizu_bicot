@@ -4,6 +4,10 @@ DEVICE_PATH := device/meizu/bicot
 #TARGET_NO_RECOVERY := true
 WITHOUT_CHECK_API := true
 
+# for skip some eror because build with prebuilt kernel
+#$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
+
 
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
