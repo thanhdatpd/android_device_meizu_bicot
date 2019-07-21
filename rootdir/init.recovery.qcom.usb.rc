@@ -8,9 +8,9 @@ on fs
     write /sys/class/android_usb/android0/idProduct 904D
     write /sys/class/android_usb/android0/f_ffs/aliases adb
     write /sys/class/android_usb/android0/functions mtp,adb
-    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
-    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
-    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/android0/iManufacturer meizu
+    write /sys/class/android_usb/android0/iProduct bicot
+    write /sys/class/android_usb/android0/iSerial SERIALTEST007
 
     setprop sys.usb.config ${persist.sys.usb.config}
 
