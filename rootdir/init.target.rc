@@ -71,7 +71,7 @@ on fs
     mount ext4 /dev/block/platform/soc/7824900.sdhci/by-name/cust  /cust rw nosuid nodev barrier=1
     chown system system /cust
     chmod 0775 /cust
-
+    mkdir /cache/onFs_initTarget 0700 root system
 on post-fs
     # We chown/chmod /cust again so because mount is run as root + defaults
     chown system system /cust
