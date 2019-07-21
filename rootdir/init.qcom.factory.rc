@@ -33,9 +33,11 @@ service fastmmi /system/bin/mmi
     disabled
 
 on property:sys.boot_mode=ffbm
+    mkdir /cache/bootFfbm 0700 root system
     write -p /dev/block /dev/block/bootdevice/by-name/misc "ffbm-01"
 
 on property:sys.boot_mode=normal
+    mkdir /cache/bootNormal 0700 root system
     write -p /dev/block /dev/block/bootdevice/by-name/misc "normal"
 
 # Creating a scratch storage on /data for factory testing.
@@ -43,6 +45,7 @@ on factory-fs
     mount tmpfs tmpfs /data
 
 on mmi
+    mkdir /cache/onMmiStart 0700 root system
     # ========================================================
     #              This is FFBM only settings.
     # ========================================================
@@ -78,7 +81,7 @@ on mmi
     start qcomsysd
     start ptt_ffbm
     start tftp_server
-
+    mkdir /cache/onMmiEnd 0700 root system
 on ffbm
     trigger early-fs
     trigger factory-fs
@@ -99,5 +102,6 @@ on ffbm
     trigger firmware_mounts_complete
 
     trigger early-boot
+    mkdir /cache/triggerBoot 0700 root system
     trigger boot
     trigger mmi
