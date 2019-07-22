@@ -5,7 +5,7 @@ DEVICE_PATH := device/meizu/bicot
 WITHOUT_CHECK_API := true
 
 # for skip some eror because build with prebuilt kernel
-#$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
 
 
