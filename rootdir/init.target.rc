@@ -561,17 +561,17 @@ on boot
     chown system system /sys/class/meizu/tp/gesture_control
     chown system system /sys/class/meizu/tp/gesture_data
     setprop vold.microsd.inserted false
-#service mtservice /system/bin/mtd
-#    class late_start
+service mtservice /system/bin/mtd
+    class late_start
 
-#service vsimservice /system/bin/vsimd
-#    class late_start
+service vsimservice /system/bin/vsimd
+    class late_start
 
-#service mlipayservice /system/bin/mlipayd
-#    class late_start
+service mlipayservice /system/bin/mlipayd
+    class late_start
 
-#service fidoca /system/bin/fidoca
- #   class late_start
+service fidoca /system/bin/fidoca
+    class late_start
 
 service qcom-ssr /system/bin/sh /init.qcom.ssr.sh 
     class late_start 
