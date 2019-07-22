@@ -1,5 +1,32 @@
 # Device Tree for Meizu M6 Note (m1721/bicot) test build from mi a1
 
+
+Sometime im happy,sometime im sad_ly. just another day come, 
+
+Update timeline:
+
+- 23/7/2019 few min pass: add this timeline first time, will push now. bye :)
+
+- 23/7/2019: Just another day come, nothing new :) except github downed lastnight when i fix issues #41, so i will go to sleep. have a nice day. 
+
+- 22/7/2019: After some day, build done but cant boot :))). in fixing bootimage to success first boot. 
+
+- 22/7/2019 and some day before: realized that wrong, this impossible for now. back to zero, try to build Lineage 14.1
+
+- 22/7/2019 and Before one week: start try to build Lineage 16.0 again from zeroo.
+
+- Break time.
+
+- Few month ago, a lot of error pass, built Los 16.0 done but cant boot,just recovery work.
+
+- Before few month ago, start build source first time in very lowend laptop i3-350m 2G ram. It take 5min to prepare each building. :v
+
+
+
+
+
+
+
 ## Spec Sheet
 
 | Feature                 | Specification                     |
