@@ -1,171 +1,209 @@
-/* net/if.h -- declarations for inquiring about network interfaces
-   Copyright (C) 1997-2018 Free Software Foundation, Inc.
-   This file is part of the GNU C Library.
-   The GNU C Library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU Lesser General Public
-   License as published by the Free Software Foundation; either
-   version 2.1 of the License, or (at your option) any later version.
-   The GNU C Library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Lesser General Public License for more details.
-   You should have received a copy of the GNU Lesser General Public
-   License along with the GNU C Library; if not, see
-   <http://www.gnu.org/licenses/>.  */
-#ifndef _NET_IF_H
-#define _NET_IF_H	1
-#include <features.h>
-#ifdef __USE_MISC
-# include <sys/types.h>
-# include <sys/socket.h>
+/****************************************************************************
+ ****************************************************************************
+ ***
+ ***   This header was automatically generated from a Linux kernel header
+ ***   of the same name, to make information necessary for userspace to
+ ***   call into the kernel available to libc.  It contains only constants,
+ ***   structures, and macros generated from the original header, and thus,
+ ***   contains no copyrightable information.
+ ***
+ ***   To edit the content of this header, modify the corresponding
+ ***   source file (e.g. under external/kernel-headers/original/) then
+ ***   run bionic/libc/kernel/tools/update_all.py
+ ***
+ ***   Any manual change here will be lost the next time this script will
+ ***   be run. You've been warned!
+ ***
+ ****************************************************************************
+ ****************************************************************************/
+#ifndef _LINUX_IF_H
+#define _LINUX_IF_H
+#include <linux/types.h>
+#include <linux/socket.h>
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#include <linux/compiler.h>
+#define IFNAMSIZ 16
+#define IFALIASZ 256
+#include <linux/hdlc/ioctl.h>
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum net_device_flags {
+  IFF_UP = 1 << 0,
+  IFF_BROADCAST = 1 << 1,
+  IFF_DEBUG = 1 << 2,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IFF_LOOPBACK = 1 << 3,
+  IFF_POINTOPOINT = 1 << 4,
+  IFF_NOTRAILERS = 1 << 5,
+  IFF_RUNNING = 1 << 6,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IFF_NOARP = 1 << 7,
+  IFF_PROMISC = 1 << 8,
+  IFF_ALLMULTI = 1 << 9,
+  IFF_MASTER = 1 << 10,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IFF_SLAVE = 1 << 11,
+  IFF_MULTICAST = 1 << 12,
+  IFF_PORTSEL = 1 << 13,
+  IFF_AUTOMEDIA = 1 << 14,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IFF_DYNAMIC = 1 << 15,
+  IFF_LOWER_UP = 1 << 16,
+  IFF_DORMANT = 1 << 17,
+  IFF_ECHO = 1 << 18,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+};
+#define IFF_UP IFF_UP
+#define IFF_BROADCAST IFF_BROADCAST
+#define IFF_DEBUG IFF_DEBUG
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IFF_LOOPBACK IFF_LOOPBACK
+#define IFF_POINTOPOINT IFF_POINTOPOINT
+#define IFF_NOTRAILERS IFF_NOTRAILERS
+#define IFF_RUNNING IFF_RUNNING
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IFF_NOARP IFF_NOARP
+#define IFF_PROMISC IFF_PROMISC
+#define IFF_ALLMULTI IFF_ALLMULTI
+#define IFF_MASTER IFF_MASTER
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IFF_SLAVE IFF_SLAVE
+#define IFF_MULTICAST IFF_MULTICAST
+#define IFF_PORTSEL IFF_PORTSEL
+#define IFF_AUTOMEDIA IFF_AUTOMEDIA
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IFF_DYNAMIC IFF_DYNAMIC
+#define IFF_LOWER_UP IFF_LOWER_UP
+#define IFF_DORMANT IFF_DORMANT
+#define IFF_ECHO IFF_ECHO
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IFF_VOLATILE (IFF_LOOPBACK | IFF_POINTOPOINT | IFF_BROADCAST | IFF_ECHO | IFF_MASTER | IFF_SLAVE | IFF_RUNNING | IFF_LOWER_UP | IFF_DORMANT)
+#define IF_GET_IFACE 0x0001
+#define IF_GET_PROTO 0x0002
+#define IF_IFACE_V35 0x1000
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IF_IFACE_V24 0x1001
+#define IF_IFACE_X21 0x1002
+#define IF_IFACE_T1 0x1003
+#define IF_IFACE_E1 0x1004
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IF_IFACE_SYNC_SERIAL 0x1005
+#define IF_IFACE_X21D 0x1006
+#define IF_PROTO_HDLC 0x2000
+#define IF_PROTO_PPP 0x2001
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IF_PROTO_CISCO 0x2002
+#define IF_PROTO_FR 0x2003
+#define IF_PROTO_FR_ADD_PVC 0x2004
+#define IF_PROTO_FR_DEL_PVC 0x2005
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IF_PROTO_X25 0x2006
+#define IF_PROTO_HDLC_ETH 0x2007
+#define IF_PROTO_FR_ADD_ETH_PVC 0x2008
+#define IF_PROTO_FR_DEL_ETH_PVC 0x2009
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define IF_PROTO_FR_PVC 0x200A
+#define IF_PROTO_FR_ETH_PVC 0x200B
+#define IF_PROTO_RAW 0x200C
+enum {
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IF_OPER_UNKNOWN,
+  IF_OPER_NOTPRESENT,
+  IF_OPER_DOWN,
+  IF_OPER_LOWERLAYERDOWN,
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  IF_OPER_TESTING,
+  IF_OPER_DORMANT,
+  IF_OPER_UP,
+};
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+enum {
+  IF_LINK_MODE_DEFAULT,
+  IF_LINK_MODE_DORMANT,
+};
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct ifmap {
+  unsigned long mem_start;
+  unsigned long mem_end;
+  unsigned short base_addr;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  unsigned char irq;
+  unsigned char dma;
+  unsigned char port;
+};
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+struct if_settings {
+  unsigned int type;
+  unsigned int size;
+  union {
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    raw_hdlc_proto __user * raw_hdlc;
+    cisco_proto __user * cisco;
+    fr_proto __user * fr;
+    fr_proto_pvc __user * fr_pvc;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    fr_proto_pvc_info __user * fr_pvc_info;
+    sync_serial_settings __user * sync;
+    te1_settings __user * te1;
+  } ifs_ifsu;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+};
+struct ifreq {
+#define IFHWADDRLEN 6
+  union {
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    char ifrn_name[IFNAMSIZ];
+  } ifr_ifrn;
+  union {
+    struct sockaddr ifru_addr;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    struct sockaddr ifru_dstaddr;
+    struct sockaddr ifru_broadaddr;
+    struct sockaddr ifru_netmask;
+    struct sockaddr ifru_hwaddr;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    short ifru_flags;
+    int ifru_ivalue;
+    int ifru_mtu;
+    struct ifmap ifru_map;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+    char ifru_slave[IFNAMSIZ];
+    char ifru_newname[IFNAMSIZ];
+    void __user * ifru_data;
+    struct if_settings ifru_settings;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  } ifr_ifru;
+};
+#define ifr_name ifr_ifrn.ifrn_name
+#define ifr_hwaddr ifr_ifru.ifru_hwaddr
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define ifr_addr ifr_ifru.ifru_addr
+#define ifr_dstaddr ifr_ifru.ifru_dstaddr
+#define ifr_broadaddr ifr_ifru.ifru_broadaddr
+#define ifr_netmask ifr_ifru.ifru_netmask
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define ifr_flags ifr_ifru.ifru_flags
+#define ifr_metric ifr_ifru.ifru_ivalue
+#define ifr_mtu ifr_ifru.ifru_mtu
+#define ifr_map ifr_ifru.ifru_map
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define ifr_slave ifr_ifru.ifru_slave
+#define ifr_data ifr_ifru.ifru_data
+#define ifr_ifindex ifr_ifru.ifru_ivalue
+#define ifr_bandwidth ifr_ifru.ifru_ivalue
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+#define ifr_qlen ifr_ifru.ifru_ivalue
+#define ifr_newname ifr_ifru.ifru_newname
+#define ifr_settings ifr_ifru.ifru_settings
+struct ifconf {
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  int ifc_len;
+  union {
+    char __user * ifcu_buf;
+    struct ifreq __user * ifcu_req;
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+  } ifc_ifcu;
+};
+#define ifc_buf ifc_ifcu.ifcu_buf
+#define ifc_req ifc_ifcu.ifcu_req
+/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #endif
-/* Length of interface name.  */
-#define IF_NAMESIZE	16
-struct if_nameindex
-  {
-    unsigned int if_index;	/* 1, 2, ... */
-    char *if_name;		/* null terminated name: "eth0", ... */
-  };
-#ifdef __USE_MISC
-/* Standard interface flags. */
-enum
-  {
-    IFF_UP = 0x1,		/* Interface is up.  */
-# define IFF_UP	IFF_UP
-    IFF_BROADCAST = 0x2,	/* Broadcast address valid.  */
-# define IFF_BROADCAST	IFF_BROADCAST
-    IFF_DEBUG = 0x4,		/* Turn on debugging.  */
-# define IFF_DEBUG	IFF_DEBUG
-    IFF_LOOPBACK = 0x8,		/* Is a loopback net.  */
-# define IFF_LOOPBACK	IFF_LOOPBACK
-    IFF_POINTOPOINT = 0x10,	/* Interface is point-to-point link.  */
-# define IFF_POINTOPOINT IFF_POINTOPOINT
-    IFF_NOTRAILERS = 0x20,	/* Avoid use of trailers.  */
-# define IFF_NOTRAILERS	IFF_NOTRAILERS
-    IFF_RUNNING = 0x40,		/* Resources allocated.  */
-# define IFF_RUNNING	IFF_RUNNING
-    IFF_NOARP = 0x80,		/* No address resolution protocol.  */
-# define IFF_NOARP	IFF_NOARP
-    IFF_PROMISC = 0x100,	/* Receive all packets.  */
-# define IFF_PROMISC	IFF_PROMISC
-    /* Not supported */
-    IFF_ALLMULTI = 0x200,	/* Receive all multicast packets.  */
-# define IFF_ALLMULTI	IFF_ALLMULTI
-    IFF_MASTER = 0x400,		/* Master of a load balancer.  */
-# define IFF_MASTER	IFF_MASTER
-    IFF_SLAVE = 0x800,		/* Slave of a load balancer.  */
-# define IFF_SLAVE	IFF_SLAVE
-    IFF_MULTICAST = 0x1000,	/* Supports multicast.  */
-# define IFF_MULTICAST	IFF_MULTICAST
-    IFF_PORTSEL = 0x2000,	/* Can set media type.  */
-# define IFF_PORTSEL	IFF_PORTSEL
-    IFF_AUTOMEDIA = 0x4000,	/* Auto media select active.  */
-# define IFF_AUTOMEDIA	IFF_AUTOMEDIA
-    IFF_DYNAMIC = 0x8000	/* Dialup device with changing addresses.  */
-# define IFF_DYNAMIC	IFF_DYNAMIC
-  };
-/* The ifaddr structure contains information about one address of an
-   interface.  They are maintained by the different address families,
-   are allocated and attached when an address is set, and are linked
-   together so all addresses for an interface can be located.  */
-struct ifaddr
-  {
-    struct sockaddr ifa_addr;	/* Address of interface.  */
-    union
-      {
-	struct sockaddr	ifu_broadaddr;
-	struct sockaddr	ifu_dstaddr;
-      } ifa_ifu;
-    struct iface *ifa_ifp;	/* Back-pointer to interface.  */
-    struct ifaddr *ifa_next;	/* Next address for interface.  */
-  };
-# define ifa_broadaddr	ifa_ifu.ifu_broadaddr	/* broadcast address	*/
-# define ifa_dstaddr	ifa_ifu.ifu_dstaddr	/* other end of link	*/
-/* Device mapping structure. I'd just gone off and designed a
-   beautiful scheme using only loadable modules with arguments for
-   driver options and along come the PCMCIA people 8)
-   Ah well. The get() side of this is good for WDSETUP, and it'll be
-   handy for debugging things. The set side is fine for now and being
-   very small might be worth keeping for clean configuration.  */
-struct ifmap
-  {
-    unsigned long int mem_start;
-    unsigned long int mem_end;
-    unsigned short int base_addr;
-    unsigned char irq;
-    unsigned char dma;
-    unsigned char port;
-    /* 3 bytes spare */
-  };
-/* Interface request structure used for socket ioctl's.  All interface
-   ioctl's must have parameter definitions which begin with ifr_name.
-   The remainder may be interface specific.  */
-struct ifreq
-  {
-# define IFHWADDRLEN	6
-# define IFNAMSIZ	IF_NAMESIZE
-    union
-      {
-	char ifrn_name[IFNAMSIZ];	/* Interface name, e.g. "en0".  */
-      } ifr_ifrn;
-    union
-      {
-	struct sockaddr ifru_addr;
-	struct sockaddr ifru_dstaddr;
-	struct sockaddr ifru_broadaddr;
-	struct sockaddr ifru_netmask;
-	struct sockaddr ifru_hwaddr;
-	short int ifru_flags;
-	int ifru_ivalue;
-	int ifru_mtu;
-	struct ifmap ifru_map;
-	char ifru_slave[IFNAMSIZ];	/* Just fits the size */
-	char ifru_newname[IFNAMSIZ];
-	__caddr_t ifru_data;
-      } ifr_ifru;
-  };
-# define ifr_name	ifr_ifrn.ifrn_name	/* interface name 	*/
-# define ifr_hwaddr	ifr_ifru.ifru_hwaddr	/* MAC address 		*/
-# define ifr_addr	ifr_ifru.ifru_addr	/* address		*/
-# define ifr_dstaddr	ifr_ifru.ifru_dstaddr	/* other end of p-p lnk	*/
-# define ifr_broadaddr	ifr_ifru.ifru_broadaddr	/* broadcast address	*/
-# define ifr_netmask	ifr_ifru.ifru_netmask	/* interface net mask	*/
-# define ifr_flags	ifr_ifru.ifru_flags	/* flags		*/
-# define ifr_metric	ifr_ifru.ifru_ivalue	/* metric		*/
-# define ifr_mtu	ifr_ifru.ifru_mtu	/* mtu			*/
-# define ifr_map	ifr_ifru.ifru_map	/* device map		*/
-# define ifr_slave	ifr_ifru.ifru_slave	/* slave device		*/
-# define ifr_data	ifr_ifru.ifru_data	/* for use by interface	*/
-# define ifr_ifindex	ifr_ifru.ifru_ivalue    /* interface index      */
-# define ifr_bandwidth	ifr_ifru.ifru_ivalue	/* link bandwidth	*/
-# define ifr_qlen	ifr_ifru.ifru_ivalue	/* queue length		*/
-# define ifr_newname	ifr_ifru.ifru_newname	/* New name		*/
-# define _IOT_ifreq	_IOT(_IOTS(char),IFNAMSIZ,_IOTS(char),16,0,0)
-# define _IOT_ifreq_short _IOT(_IOTS(char),IFNAMSIZ,_IOTS(short),1,0,0)
-# define _IOT_ifreq_int	_IOT(_IOTS(char),IFNAMSIZ,_IOTS(int),1,0,0)
-/* Structure used in SIOCGIFCONF request.  Used to retrieve interface
-   configuration for machine (useful for programs which must know all
-   networks accessible).  */
-struct ifconf
-  {
-    int	ifc_len;			/* Size of buffer.  */
-    union
-      {
-	__caddr_t ifcu_buf;
-	struct ifreq *ifcu_req;
-      } ifc_ifcu;
-  };
-# define ifc_buf	ifc_ifcu.ifcu_buf	/* Buffer address.  */
-# define ifc_req	ifc_ifcu.ifcu_req	/* Array of structures.  */
-# define _IOT_ifconf _IOT(_IOTS(struct ifconf),1,0,0,0,0) /* not right */
-#endif	/* Misc.  */
-__BEGIN_DECLS
-/* Convert an interface name to an index, and vice versa.  */
-extern unsigned int if_nametoindex (const char *__ifname) __THROW;
-extern char *if_indextoname (unsigned int __ifindex, char *__ifname) __THROW;
-/* Return a list of all interfaces and their indices.  */
-extern struct if_nameindex *if_nameindex (void) __THROW;
-/* Free the data returned from if_nameindex.  */
-extern void if_freenameindex (struct if_nameindex *__ptr) __THROW;
-__END_DECLS
-#endif /* net/if.h */
