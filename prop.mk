@@ -25,21 +25,21 @@ ro.bluetooth.hfp.ver=1.7 \
 ro.qualcomm.bt.hci_transport=smd
 
 # Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-camera.display.lmax=1280x720 \
-camera.display.umax=1920x1080 \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
-camera.lowpower.record.enable=1 \
-media.camera.ts.monotonic=1 \
-persist.camera.gyro.disable=0 \
-persist.camera.isp.clock.optmz=0 \
-persist.camera.stats.test=5 \
-vidc.enc.dcvs.extra-buff-count=2
+#PRODUCT_PROPERTY_OVERRIDES += \
+#camera.display.lmax=1280x720 \
+#camera.display.umax=1920x1080 \
+#camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+#camera.lowpower.record.enable=1 \
+#media.camera.ts.monotonic=1 \
+#persist.camera.gyro.disable=0 \
+#persist.camera.isp.clock.optmz=0 \
+#persist.camera.stats.test=5 \
+#vidc.enc.dcvs.extra-buff-count=2
 
 # Cne/Dpm
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.cne.feature=1 \
-persist.dpm.feature=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#persist.cne.feature=1 \
+#persist.dpm.feature=1
 
 # Coresight
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -50,28 +50,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 debug.egl.hw=1 \
 debug.enable.sglscale=1 \
 debug.gralloc.enable_fb_ubwc=1 \
-debug.mdpcomp.logs=0 \
+debug.mdpcomp.logs=1 \
 debug.sf.hw=1 \
-dev.pm.dyn_samplingrate=1 \
-persist.debug.wfd.enable=1 \
-persist.demo.hdmirotationlock=false \
-persist.hwc.enable_vds=1 \
-persist.hwc.mdpcomp.enable=true \
+#dev.pm.dyn_samplingrate=1 \
+#persist.debug.wfd.enable=1 \
+#persist.demo.hdmirotationlock=false \
+#persist.hwc.enable_vds=1 \
+#persist.hwc.mdpcomp.enable=true \
 #ro.opengles.version=196610 \
 #ro.qualcomm.cabl=0 \
-ro.sf.lcd_density=480
+#ro.sf.lcd_density=480
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
-drm.service.enabled=true
+drm.service.enabled=false
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.qfp=false
 
 # Fm
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.fm.transmitter=false
+#PRODUCT_PROPERTY_OVERRIDES += \
+#ro.fm.transmitter=false
 
 # Frp
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -84,7 +84,7 @@ persist.loc.nlp_name=com.qualcomm.location \
 ro.gps.agps_provider=1
 
 # Media
-PRODUCT_PROPERTY_OVERRIDES += \
+#PRODUCT_PROPERTY_OVERRIDES += \
 #av.debug.disable.pers.cache=1 \
 #media.aac_51_output_enabled=true \
 #media.msm8956hw=0 \
