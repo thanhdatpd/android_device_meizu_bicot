@@ -247,7 +247,7 @@ invalid_input:
 }
 static inline unsigned int VENUS_RGB_META_STRIDE(int color_fmt, int width)
 {
-	int rgb_tile_width = 0, rgb_meta_stride = 0;
+	unsigned int rgb_tile_width = 0, rgb_meta_stride = 0;
 	if (!width)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -257,14 +257,14 @@ static inline unsigned int VENUS_RGB_META_STRIDE(int color_fmt, int width)
 	default:
 		goto invalid_input;
 	}
-	rgb_meta_stride = MSM_MEDIA_ROUNDUP(width, rgb_tile_width);
-	rgb_meta_stride = MSM_MEDIA_ALIGN(rgb_meta_stride, 64);
+	rgb_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width, rgb_tile_width);
+	rgb_meta_stride = MSM_MEDIA_ALIGN(rgb_meta_stride, (unsigned int)64);
 invalid_input:
 	return rgb_meta_stride;
 }
 static inline unsigned int VENUS_RGB_META_SCANLINES(int color_fmt, int height)
 {
-	int rgb_tile_height = 0, rgb_meta_scanlines = 0;
+	unsigned int rgb_tile_height = 0, rgb_meta_scanlines = 0;
 	if (!height)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -274,15 +274,15 @@ static inline unsigned int VENUS_RGB_META_SCANLINES(int color_fmt, int height)
 	default:
 		goto invalid_input;
 	}
-	rgb_meta_scanlines = MSM_MEDIA_ROUNDUP(height, rgb_tile_height);
-	rgb_meta_scanlines = MSM_MEDIA_ALIGN(rgb_meta_scanlines, 16);
+	rgb_meta_scanlines = MSM_MEDIA_ROUNDUP((unsigned int)height, rgb_tile_height);
+	rgb_meta_scanlines = MSM_MEDIA_ALIGN(rgb_meta_scanlines, (unsigned int)16);
 invalid_input:
 	return rgb_meta_scanlines;
 }
 static inline unsigned int VENUS_BUFFER_SIZE(
 	int color_fmt, int width, int height)
 {
-	const unsigned int extra_size = VENUS_EXTRADATA_SIZE(width, height);
+	const unsigned int extra_size = VENUS_EXTRADATA_SIZE((unsigned int)width, (unsigned int)height);
 	unsigned int uv_alignment = 0, size = 0;
 	unsigned int y_plane, uv_plane, y_stride,
 		uv_stride, y_sclines, uv_sclines;
