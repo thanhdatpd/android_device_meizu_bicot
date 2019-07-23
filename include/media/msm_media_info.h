@@ -129,7 +129,7 @@ invalid_input:
 }
 static inline unsigned int VENUS_Y_META_STRIDE(int color_fmt, int width)
 {
-	int y_tile_width = 0, y_meta_stride = 0;
+	unsigned int y_tile_width = 0, y_meta_stride = 0;
 	if (!width)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -142,14 +142,14 @@ static inline unsigned int VENUS_Y_META_STRIDE(int color_fmt, int width)
 	default:
 		goto invalid_input;
 	}
-	y_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width, (unsigned int)y_tile_width);
-	y_meta_stride = MSM_MEDIA_ALIGN((unsigned int)y_meta_stride, 64);
+	y_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width, y_tile_width);
+	y_meta_stride = MSM_MEDIA_ALIGN(y_meta_stride, (unsigned int)64);
 invalid_input:
 	return y_meta_stride;
 }
 static inline unsigned int VENUS_Y_META_SCANLINES(int color_fmt, int height)
 {
-	int y_tile_height = 0, y_meta_scanlines = 0;
+	unsigned int y_tile_height = 0, y_meta_scanlines = 0;
 	if (!height)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -162,14 +162,14 @@ static inline unsigned int VENUS_Y_META_SCANLINES(int color_fmt, int height)
 	default:
 		goto invalid_input;
 	}
-	y_meta_scanlines = MSM_MEDIA_ROUNDUP(height, y_tile_height);
-	y_meta_scanlines = MSM_MEDIA_ALIGN(y_meta_scanlines, 16);
+	y_meta_scanlines = MSM_MEDIA_ROUNDUP((unsigned int)height, y_tile_height);
+	y_meta_scanlines = MSM_MEDIA_ALIGN(y_meta_scanlines, (unsigned int)16);
 invalid_input:
 	return y_meta_scanlines;
 }
 static inline unsigned int VENUS_UV_META_STRIDE(int color_fmt, int width)
 {
-	int uv_tile_width = 0, uv_meta_stride = 0;
+	unsigned int uv_tile_width = 0, uv_meta_stride = 0;
 	if (!width)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -182,14 +182,14 @@ static inline unsigned int VENUS_UV_META_STRIDE(int color_fmt, int width)
 	default:
 		goto invalid_input;
 	}
-	uv_meta_stride = MSM_MEDIA_ROUNDUP(width / 2, uv_tile_width);
-	uv_meta_stride = MSM_MEDIA_ALIGN(uv_meta_stride, 64);
+	uv_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width / 2, uv_tile_width);
+	uv_meta_stride = MSM_MEDIA_ALIGN(uv_meta_stride, (unsigned int)64);
 invalid_input:
 	return uv_meta_stride;
 }
 static inline unsigned int VENUS_UV_META_SCANLINES(int color_fmt, int height)
 {
-	int uv_tile_height = 0, uv_meta_scanlines = 0;
+	unsigned int uv_tile_height = 0, uv_meta_scanlines = 0;
 	if (!height)
 		goto invalid_input;
 	switch (color_fmt) {
@@ -202,8 +202,8 @@ static inline unsigned int VENUS_UV_META_SCANLINES(int color_fmt, int height)
 	default:
 		goto invalid_input;
 	}
-	uv_meta_scanlines = MSM_MEDIA_ROUNDUP(height / 2, uv_tile_height);
-	uv_meta_scanlines = MSM_MEDIA_ALIGN(uv_meta_scanlines, 16);
+	uv_meta_scanlines = MSM_MEDIA_ROUNDUP((unsigned int)height / 2, uv_tile_height);
+	uv_meta_scanlines = MSM_MEDIA_ALIGN(uv_meta_scanlines, (unsigned int)16);
 invalid_input:
 	return uv_meta_scanlines;
 }
@@ -222,7 +222,7 @@ static inline unsigned int VENUS_RGB_STRIDE(int color_fmt, int width)
 	default:
 		goto invalid_input;
 	}
-	stride = MSM_MEDIA_ALIGN(width * 4, alignment);
+	stride = MSM_MEDIA_ALIGN((unsigned int)width * 4, alignment);
 invalid_input:
 	return stride;
 }
@@ -241,7 +241,7 @@ static inline unsigned int VENUS_RGB_SCANLINES(int color_fmt, int height)
 	default:
 		goto invalid_input;
 	}
-	scanlines = MSM_MEDIA_ALIGN(height, alignment);
+	scanlines = MSM_MEDIA_ALIGN((unsigned int)height, alignment);
 invalid_input:
 	return scanlines;
 }
