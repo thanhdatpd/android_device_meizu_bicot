@@ -50,7 +50,7 @@ static inline unsigned int VENUS_Y_STRIDE(int color_fmt, int width)
 		break;
 	case COLOR_FMT_NV12_BPP10_UBWC:
 		alignment = 256;
-		stride = MSM_MEDIA_ALIGN((unsigned int)width, 192);
+		stride = MSM_MEDIA_ALIGN((unsigned int)width, (unsigned int)192);
 		stride = MSM_MEDIA_ALIGN(stride * 4/3, alignment);
 		break;
 	default:
@@ -74,7 +74,7 @@ static inline unsigned int VENUS_UV_STRIDE(int color_fmt, int width)
 		break;
 	case COLOR_FMT_NV12_BPP10_UBWC:
 		alignment = 256;
-		stride = MSM_MEDIA_ALIGN((unsigned int)width, 192);
+		stride = MSM_MEDIA_ALIGN((unsigned int)width, (unsigned int)192);
 		stride = MSM_MEDIA_ALIGN(stride * 4/3, alignment);
 		break;
 	default:
@@ -142,7 +142,7 @@ static inline unsigned int VENUS_Y_META_STRIDE(int color_fmt, int width)
 	default:
 		goto invalid_input;
 	}
-	y_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width, y_tile_width);
+	y_meta_stride = MSM_MEDIA_ROUNDUP((unsigned int)width, (unsigned int)y_tile_width);
 	y_meta_stride = MSM_MEDIA_ALIGN((unsigned int)y_meta_stride, 64);
 invalid_input:
 	return y_meta_stride;
