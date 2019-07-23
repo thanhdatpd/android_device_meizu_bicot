@@ -21,7 +21,7 @@ static inline unsigned int VENUS_EXTRADATA_SIZE(int width, int height)
 	 */
 	return 8 * 1024;
 }
-static inline unsigned int VENUS_Y_STRIDE(int color_fmt, int width)
+static inline unsigned int VENUS_Y_STRIDE(int color_fmt, unsigned int width)
 {
 	unsigned int alignment, stride = 0;
 	if (!width)
