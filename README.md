@@ -1,7 +1,7 @@
 # Device Tree for Meizu M6 Note (m1721/bicot)
 
 
-Sometime im happy,sometime im sad_ly. just another day come, 
+Sometime im happy, sometime im sad_ly. just another day come, 
 
 Update timeline:
 
