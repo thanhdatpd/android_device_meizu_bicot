@@ -21,7 +21,7 @@ static inline unsigned int VENUS_EXTRADATA_SIZE(int width, int height)
 	 */
 	return 8 * 1024;
 }
-static inline unsigned int VENUS_Y_STRIDE(int color_fmt, unsigned int width)
+static inline unsigned int VENUS_Y_STRIDE(int color_fmt, int width)
 {
 	unsigned int alignment, stride = 0;
 	if (!width)
@@ -31,7 +31,7 @@ static inline unsigned int VENUS_Y_STRIDE(int color_fmt, unsigned int width)
 	case COLOR_FMT_NV12:
 	case COLOR_FMT_NV12_MVTB:
 		alignment = 128;
-		stride = MSM_MEDIA_ALIGN(width, alignment);
+		stride = MSM_MEDIA_ALIGN((unsigned int)width, alignment);
 		break;
 	default:
 		break;
