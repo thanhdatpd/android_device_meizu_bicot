@@ -49,7 +49,7 @@ static inline unsigned int VENUS_UV_STRIDE(int color_fmt, int width)
 	case COLOR_FMT_NV12:
 	case COLOR_FMT_NV12_MVTB:
 		alignment = 128;
-		stride = MSM_MEDIA_ALIGN(width, alignment);
+		stride = MSM_MEDIA_ALIGN((unsigned int)width, alignment);
 		break;
 	default:
 		break;
@@ -67,7 +67,7 @@ static inline unsigned int VENUS_Y_SCANLINES(int color_fmt, int height)
 	case COLOR_FMT_NV12:
 	case COLOR_FMT_NV12_MVTB:
 		alignment = 32;
-		sclines = MSM_MEDIA_ALIGN(height, alignment);
+		sclines = MSM_MEDIA_ALIGN((unsigned int)height, alignment);
 		break;
 	default:
 		break;
@@ -85,7 +85,7 @@ static inline unsigned int VENUS_UV_SCANLINES(int color_fmt, int height)
 	case COLOR_FMT_NV12:
 	case COLOR_FMT_NV12_MVTB:
 		alignment = 16;
-		sclines = MSM_MEDIA_ALIGN(((height + 1) >> 1), alignment);
+		sclines = MSM_MEDIA_ALIGN((((unsigned int)height + 1) >> 1), alignment);
 		break;
 	default:
 		break;
@@ -113,7 +113,7 @@ static inline unsigned int VENUS_BUFFER_SIZE(
 		y_plane = y_stride * y_sclines;
 		uv_plane = uv_stride * uv_sclines + uv_alignment;
 		size = y_plane + uv_plane + extra_size;
-		size = MSM_MEDIA_ALIGN(size, 4096);
+		size = MSM_MEDIA_ALIGN((unsigned int)size, 4096);
 		break;
 	case COLOR_FMT_NV12_MVTB:
 		uv_alignment = 4096;
@@ -121,7 +121,7 @@ static inline unsigned int VENUS_BUFFER_SIZE(
 		uv_plane = uv_stride * uv_sclines + uv_alignment;
 		size = y_plane + uv_plane;
 		size = 2 * size + extra_size;
-		size = MSM_MEDIA_ALIGN(size, 4096);
+		size = MSM_MEDIA_ALIGN((unsigned int)size, 4096);
 		break;
 	default:
 		break;
