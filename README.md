@@ -1,4 +1,4 @@
-# Device Tree for Meizu M6 Note (m1721/bicot) test build from mi a1
+# Device Tree for Meizu M6 Note (m1721/bicot)
 
 
 Sometime im happy,sometime im sad_ly. just another day come, 
@@ -23,7 +23,9 @@ Update timeline:
 
 
 
+Note:
 
+- Because i used prebuilt kernel, the build can not include kernel header file ( .h) so i import those file to /include like path the build need. Source i take from this: https://android.googlesource.com/platform/hardware/qcom/msm8996/+/refs/tags/android-7.1.2_r36/kernel-headers and this https://android.googlesource.com/kernel/msm/+/refs/tags/android-7.1.2_r0.33/include/linux/ . Hope this can help anyone like me ^^.
 
 
 
