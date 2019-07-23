@@ -1,7 +1,7 @@
 #ifndef __MEDIA_INFO_H__
 #define __MEDIA_INFO_H__
 #ifndef MSM_MEDIA_ALIGN
-#define MSM_MEDIA_ALIGN(__sz, __align) ((((unssigned int)__sz) + (__align-1)) & (~(__align-1)))
+#define MSM_MEDIA_ALIGN(__sz, __align) ((((unsigned int)__sz) + (__align-1)) & (~(__align-1)))
 #endif
 #ifndef MSM_MEDIA_ROUNDUP
 #define MSM_MEDIA_ROUNDUP(__sz, __r) (((__sz) + ((__r) - 1)) / (__r))
