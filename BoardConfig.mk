@@ -8,7 +8,7 @@ WITHOUT_CHECK_API := true
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
 
-
+BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_NO_WIFI_HAL := true
