@@ -22,18 +22,8 @@ $(call inherit-product, vendor/meizu/bicot/bicot-vendor.mk)
 # Inherit from msm8953-common
 $(call inherit-product, device/meizu/bicot/msm8953.mk)
 
-# A/B
-#AB_OTA_UPDATER := true
 
-#AB_OTA_PARTITIONS += \
-#    boot \
- #   system
 
-#AB_OTA_POSTINSTALL_CONFIG += \
-#    RUN_POSTINSTALL_system=true \
-#    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-##    FILESYSTEM_TYPE_system=ext4 \
-#    POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
     otapreopt_script
@@ -82,6 +72,30 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
+
+
+PRODUCT_PACKAGES += \
+    copybit.msm8953 \
+    gralloc.msm8953 \
+    hwcomposer.msm8953 \
+    memtrack.msm8953 \
+    liboverlay \
+    libjni_livedisplay \
+    libtinyxml
+
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
+
+PRODUCT_PACKAGES += \
+    fingerprintd
+
+
+
+
+
+
 
 # Verity
 #PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
