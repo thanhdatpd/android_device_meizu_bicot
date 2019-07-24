@@ -303,10 +303,7 @@ service getcolorid /system/bin/getcolorid
     class core
     oneshot
 
-# add for fsn and psn
-service getxiaomisn /system/bin/getsn_xiaomi
-    class core
-    oneshot
+
 
 # add for function test
 service chmodtpon /system/bin/chmodtp o 1
