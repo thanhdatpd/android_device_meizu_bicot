@@ -248,11 +248,11 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
 
-service dts_configurator /system/bin/dts_configurator
-    class late_start
-    user system
-    group media audio
-    oneshot
+#service dts_configurator /system/bin/dts_configurator
+ #   class late_start
+ #   user system
+ #   group media audio
+  #  oneshot
 
 service dtseagleservice /system/bin/dts_eagle_service
     class late_start
