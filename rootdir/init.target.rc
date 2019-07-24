@@ -56,7 +56,9 @@ on fs
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
-
+    wait /dev/block/bootdevice/by-name/custom		
+    mount ext4 /dev/block/bootdevice/by-name/custom /custom nosuid nodev barrier=1
+    
     wait /dev/block/bootdevice/by-name/dsp
     mount ext4 /dev/block/bootdevice/by-name/dsp /dsp ro nosuid nodev barrier=1
 
@@ -78,7 +80,16 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/misc/hbtp 0750 system system
-
+	# For TEE		
+    chmod 0666 /dev/qseecom		
+    chown system system /dev/qseecom		
+    		
+#Bug533700, add, zhouliquan.wt, 20170524, allow shell read rootinfo_cnt		
+    chmod 0664 /dev/block/mmcblk0p30		
+    			
+# For fingerprint		
+    mkdir /data/fingerprint/ 0766 system system			
+    chown system system /dev/goodix_fp
 # For Meizu Hall BSP.
     chown system system /sys/class/meizu/hall/key_hall_state
     chmod 0660 /sys/class/meizu/hall/key_hall_state
@@ -307,118 +318,6 @@ service getcolorid /system/bin/getcolorid
 
 
 
-# add for function test
-service chmodtpon /system/bin/chmodtp o 1
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp=1
-    start chmodtpon
-
-service chmodtpoff /system/bin/chmodtp f 1
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp=2
-    start chmodtpoff
-
-service chmodtp3on /system/bin/chmodtp o 3
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp3=1
-    start chmodtp3on
-
-service chmodtp3off /system/bin/chmodtp f 3
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp3=2
-    start chmodtp3off
-
-service chmodtp4on /system/bin/chmodtp o 4
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp4=1
-    start chmodtp4on
-
-service chmodtp4off /system/bin/chmodtp f 4
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp4=2
-    start chmodtp4off
-
-service chmodtp5on /system/bin/chmodtp o 5
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp5=1
-    start chmodtp5on
-
-service chmodtp5off /system/bin/chmodtp f 5
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp5=2
-    start chmodtp5off
-
-service chmodtp6on /system/bin/chmodtp o 6
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp6=1
-    start chmodtp6on
-
-service chmodtp6off /system/bin/chmodtp f 6
-    user root
-    oneshot
-    disabled
-
-on property:sys.chmodtp6=2
-    start chmodtp6off
-
-service whiteflashon /system/bin/factory_bin w 1
-    user root
-    oneshot
-    disabled
-
-on property:sys.whiteflashon=1
-    start whiteflashon
-
-service whiteflashoff /system/bin/factory_bin w 0
-    user root
-    oneshot
-    disabled
-
-on property:sys.whiteflashoff=1
-    start whiteflashoff
-
-service yellowflashon /system/bin/factory_bin y 1
-    user root
-    oneshot
-    disabled
-
-on property:sys.yellowflashon=1
-    start yellowflashon
-
-service yellowflashoff /system/bin/factory_bin y 0
-    user root
-    oneshot
-    disabled
-
-on property:sys.yellowflashoff=1
-    start yellowflashoff
 
 service chargingenable /system/bin/factory_bin c 1
     user root
@@ -436,76 +335,10 @@ service chargingdisable /system/bin/factory_bin c 0
 on property:sys.charging.disable=1
     start chargingdisable
 
-service keylighton /system/bin/factory_bin k 1
-    user root
-    oneshot
-    disabled
-on property:sys.keylighton=1
-    start keylighton
 
-service keylightoff /system/bin/factory_bin k 0
-    user root
-    oneshot
-    disabled
-on property:sys.keylightoff=1
-    start keylightoff
 
-service redledon /system/bin/factory_bin r 1
-    user root
-    oneshot
-    disabled
-on property:sys.redledon=1
-    start redledon
 
-service redledoff /system/bin/factory_bin r 0
-    user root
-    oneshot
-    disabled
-on property:sys.redledoff=1
-    start redledoff
 
-service greenledon /system/bin/factory_bin g 1
-    user root
-    oneshot
-    disabled
-on property:sys.greenledon=1
-    start greenledon
-
-service greenledoff /system/bin/factory_bin g 0
-    user root
-    oneshot
-    disabled
-on property:sys.greenledoff=1
-    start greenledoff
-
-service blueledon /system/bin/factory_bin b 1
-    user root
-    oneshot
-    disabled
-on property:sys.blueledon=1
-    start blueledon
-
-service blueledoff /system/bin/factory_bin b 0
-    user root
-    oneshot
-    disabled
-on property:sys.blueledoff=1
-    start blueledoff
-
-service smartpaon /system/bin/factory_bin s 1
-    user root
-    oneshot
-    disabled
-on property:sys.smartpaon=1
-    start smartpaon
-
-service smartpaoff /system/bin/factory_bin s 0
-    user root
-    oneshot
-    disabled
-on property:sys.smartpaoff=1
-    start smartpaoff
-# add end
 
 on boot
     mkdir /dev/cpuset/top-app/boost
@@ -546,20 +379,5 @@ on boot
     chown system system /sys/class/meizu/tp/gesture_control
     chown system system /sys/class/meizu/tp/gesture_data
     setprop vold.microsd.inserted false
-service mtservice /system/bin/mtd
-    class late_start
 
-service vsimservice /system/bin/vsimd
-    class late_start
-
-service mlipayservice /system/bin/mlipayd
-    class late_start
-
-service fidoca /system/bin/fidoca
-    class late_start
-
-service qcom-ssr /system/bin/sh /init.qcom.ssr.sh 
-    class late_start 
-    user root 
-    oneshot
 
