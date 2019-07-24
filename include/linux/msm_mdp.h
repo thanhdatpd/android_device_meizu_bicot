@@ -91,7 +91,7 @@
 #define IS_MDSS_MAJOR_MINOR_SAME(rev1,rev2) (MDSS_GET_MAJOR_MINOR((rev1)) == MDSS_GET_MAJOR_MINOR((rev2)))
 #define MDSS_MDP_REV(major,minor,step) ((((major) & 0x000F) << 28) | (((minor) & 0x0FFF) << 16) | ((step) & 0xFFFF))
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
-#define MDSS_MDP_HW_REV_100 MDSS_MDP_REV(1, 0, 0)
+//#define MDSS_MDP_HW_REV_100 MDSS_MDP_REV(1, 0, 0)
 #define MDSS_MDP_HW_REV_101 MDSS_MDP_REV(1, 1, 0)
 #define MDSS_MDP_HW_REV_101_1 MDSS_MDP_REV(1, 1, 1)
 #define MDSS_MDP_HW_REV_101_2 MDSS_MDP_REV(1, 1, 2)
