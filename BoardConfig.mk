@@ -19,7 +19,7 @@ BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 
 BOARD_NO_WIFI_HAL := true
 
-
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
