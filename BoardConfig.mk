@@ -8,6 +8,12 @@ WITHOUT_CHECK_API := true
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
 
+
+#sepolicy for fix issues #43 in [ 17.703620] init: Service sysinit does not have a SELinux domain defined.
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
+
+
+
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
