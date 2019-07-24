@@ -55,7 +55,7 @@ on init
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
 on post-fs
-    insmod /system/lib/modules/exfat.ko
+#    insmod /system/lib/modules/exfat.ko
     chmod 0755 /sys/kernel/debug/tracing
 
 on early-boot
