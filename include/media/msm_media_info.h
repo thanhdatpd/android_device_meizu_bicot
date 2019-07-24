@@ -282,7 +282,7 @@ invalid_input:
 static inline unsigned int VENUS_BUFFER_SIZE(
 	int color_fmt, int width, int height)
 {
-	const unsigned int extra_size = VENUS_EXTRADATA_SIZE((unsigned int)width, (unsigned int)height);
+	const unsigned int extra_size = VENUS_EXTRADATA_SIZE(width, height);
 	unsigned int uv_alignment = 0, size = 0;
 	unsigned int y_plane, uv_plane, y_stride,
 		uv_stride, y_sclines, uv_sclines;
@@ -295,12 +295,12 @@ static inline unsigned int VENUS_BUFFER_SIZE(
 	unsigned int rgb_meta_stride = 0, rgb_meta_scanlines = 0;
 	if (!width || !height)
 		goto invalid_input;
-	y_stride = VENUS_Y_STRIDE(color_fmt, (unsigned int)width);
-	uv_stride = VENUS_UV_STRIDE(color_fmt, (unsigned int)width);
-	y_sclines = VENUS_Y_SCANLINES(color_fmt, (unsigned int)height);
-	uv_sclines = VENUS_UV_SCANLINES(color_fmt, (unsigned int)height);
-	rgb_stride = VENUS_RGB_STRIDE(color_fmt, (unsigned int)width);
-	rgb_scanlines = VENUS_RGB_SCANLINES(color_fmt,(unsigned int)height);
+	y_stride = VENUS_Y_STRIDE(color_fmt,width);
+	uv_stride = VENUS_UV_STRIDE(color_fmt, width);
+	y_sclines = VENUS_Y_SCANLINES(color_fmt, height);
+	uv_sclines = VENUS_UV_SCANLINES(color_fmt, height);
+	rgb_stride = VENUS_RGB_STRIDE(color_fmt, width);
+	rgb_scanlines = VENUS_RGB_SCANLINES(color_fmt,height);
 	switch (color_fmt) {
 	case COLOR_FMT_NV21:
 	case COLOR_FMT_NV12:
