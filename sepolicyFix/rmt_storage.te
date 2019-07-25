@@ -1,6 +1,0 @@
-#allow rmt_storage debugfs_rmt:dir search;
-#a#llow rmt_storage debugfs_rmt:file rw_file_perms;
-
-type rmt_storage, domain;
-type rmt_exec, exec_type, file_type;
-init_daemon_domain(rmt_storage)
