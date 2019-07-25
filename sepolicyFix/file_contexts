@@ -3,7 +3,7 @@
 #/system/bin/sysinit   u:object_r:system_file:s0
 #/system/bin/sysinit   u:object_r:toolbox_exec:s0
 
-/system/bin/rmt_storage          u:object_r:rmt_exec:s0
+/system/vendor/bin/rmt_storage          u:object_r:rmt_exec:s0
 /system/bin/thermald             u:object_r:thermald_exec:s0
 /system/bin/mpdecision           u:object_r:mpdecision_exec:s0
 /system/bin/mm-qcamera-daemon    u:object_r:camera_exec:s0
