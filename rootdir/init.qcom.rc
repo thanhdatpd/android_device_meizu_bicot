@@ -70,29 +70,29 @@ on early-boot
     chown system graphics /sys/class/graphics/fb0/modes
     chown system graphics /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
-    chmod 0664 /sys/class/graphics/fb0/idle_time
-    chmod 0664 /sys/class/graphics/fb0/dyn_pu
-    chmod 0664 /sys/class/graphics/fb0/modes
-    chmod 0664 /sys/class/graphics/fb0/mode
-    chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
+    #chmod 0664 /sys/class/graphics/fb0/idle_time
+   # chmod 0664 /sys/class/graphics/fb0/dyn_pu
+    ##chmod 0664 /sys/class/graphics/fb0/modes
+    #chmod 0664 /sys/class/graphics/fb0/mode
+    3chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
 
-    chown system graphics /sys/class/graphics/fb0/msm_fb_persist_mode
-    chown system graphics /sys/class/graphics/fb0/lineptr_value
-    chmod 0664 /sys/class/graphics/fb0/msm_fb_persist_mode
-    chmod 0664 /sys/class/graphics/fb0/lineptr_value
+    #chown system graphics /sys/class/graphics/fb0/msm_fb_persist_mode
+    #chown system graphics /sys/class/graphics/fb0/lineptr_value
+    #chmod 0664 /sys/class/graphics/fb0/msm_fb_persist_mode
+    #chmod 0664 /sys/class/graphics/fb0/lineptr_value
 
-    chown system graphics /sys/class/graphics/fb1/msm_fb_persist_mode
-    chown system graphics /sys/class/graphics/fb1/lineptr_value
-    chmod 0664 /sys/class/graphics/fb1/msm_fb_persist_mode
-    chmod 0664 /sys/class/graphics/fb1/lineptr_value
+    #chown system graphics /sys/class/graphics/fb1/msm_fb_persist_mode
+    #chown system graphics /sys/class/graphics/fb1/lineptr_value
+   # chmod 0664 /sys/class/graphics/fb1/msm_fb_persist_mode
+    #chmod 0664 /sys/class/graphics/fb1/lineptr_value
 
 on boot
-    chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
-    chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode
-    chown system system /sys/class/i2c-dev/i2c-3/device/3-0040/fts_cover_mode
-    chmod 0660 /sys/class/i2c-dev/i2c-3/device/3-0040/fts_cover_mode
-    chown system system /sys/class/touch/sys/mode_cover
-    chmod 0660 /sys/class/touch/sys/mode_cover
+    #chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
+   # chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode
+    #chown system system /sys/class/i2c-dev/i2c-3/device/3-0040/fts_cover_mode
+    #chmod 0660 /sys/class/i2c-dev/i2c-3/device/3-0040/fts_cover_mode
+    #chown system system /sys/class/touch/sys/mode_cover
+    #chmod 0660 /sys/class/touch/sys/mode_cover
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
@@ -119,7 +119,14 @@ on boot
 
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
-
+    chown system system /sys/srs/srs_cpulevel		
+    chown system system /sys/srs/srs_gpulevel		
+    chown system system /sys/srs/srs_buslevel		
+    chown system system /sys/srs/srs_memlevel		
+    chmod 0660 /sys/srs/srs_cpulevel		
+    chmod 0660 /sys/srs/srs_gpulevel		
+    chmod 0660 /sys/srs/srs_buslevel		
+    chmod 0660 /sys/srs/srs_memlevel
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -285,7 +292,7 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /persist
     chmod 0771 /persist
-    chown system system /system/WCNSS_qcom_wlan_nv.bin
+    chown system system /persist/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
@@ -1010,33 +1017,33 @@ service diag_mdlog_stop /system/bin/diag_mdlog -k
     disabled
     oneshot
 
-service diag_adlog_start /system/bin/diag_mdlog -f /etc/audio_log.cfg -o /sdcard/audio_logs/
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
+#service diag_adlog_start /system/bin/diag_mdlog -f /etc/audio_log.cfg -o /sdcard/audio_logs/
+ #   class late_start
+ #   user shell
+  #  group system qcom_diag sdcard_rw sdcard_r media_rw
+  #  disabled
+   # oneshot
 
-service diag_adlog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
+#service diag_adlog_stop /system/bin/diag_mdlog -k
+   # class late_start
+   # user shell
+   # group system qcom_diag sdcard_rw sdcard_r media_rw
+   # disabled
+   # oneshot
 
-service diag_gplog_start /system/bin/diag_mdlog -f /etc/GNSS.cfg -o /sdcard/gps_logs/
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
+#service diag_gplog_start /system/bin/diag_mdlog -f /etc/GNSS.cfg -o /sdcard/gps_logs/
+   # class late_start
+   # user shell
+   # group system qcom_diag sdcard_rw sdcard_r media_rw
+   # disabled
+   # oneshot
 
-service diag_gplog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
+#service diag_gplog_stop /system/bin/diag_mdlog -k
+   # class late_start
+   # user shell
+   # group system qcom_diag sdcard_rw sdcard_r media_rw
+    #disabled
+    #oneshot
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
