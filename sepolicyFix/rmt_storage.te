@@ -1,0 +1,7 @@
+# sysinit service
+type rmt_storage, domain;
+type srmt_storage_exec, exec_type, file_type;
+init_daemon_domain(rmt_storage)
+#allow sysinit shell_exec:file { getattr read open execute };
+#allow sysinit system_file:dir { open read };
+#allow sysinit toolbox_exec:file { open read execute_no_trans execute getattr};
