@@ -15,6 +15,8 @@ import /init.cm.rc
 
 
 on early-init
+    loglevel 7
+    write /proc/sys/kernel/printk 7
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_score_adj -1000
 
