@@ -12,6 +12,8 @@ $(shell cp  $(DEVICE_PATH)/overlay/system/netd system/)
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
 TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
+
 
 
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
