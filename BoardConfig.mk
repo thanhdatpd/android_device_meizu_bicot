@@ -11,6 +11,7 @@ $(shell cp  $(DEVICE_PATH)/overlay/system/netd system/)
 #sepolicy for fix issues #43 in [ 17.703620] init: Service sysinit does not have a SELinux domain defined.
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
 TARGET_PROVIDES_INIT_RC := true
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 
 
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
