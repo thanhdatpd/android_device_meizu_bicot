@@ -13,6 +13,7 @@ $(shell cp  -f $(DEVICE_PATH)/rootdir/ueventd.rc system/core/rootdir/)
 TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh
 
 
 
