@@ -3,7 +3,7 @@ DEVICE_PATH := device/meizu/bicot
 #RECOVERY_VARIANT := twrp
 #TARGET_NO_RECOVERY := true
 WITHOUT_CHECK_API := true
-
+TARGET_BUILD_VARIANT = eng
 # for skip some eror because build with prebuilt kernel
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include/linux)
