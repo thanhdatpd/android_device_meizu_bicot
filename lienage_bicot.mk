@@ -35,7 +35,7 @@ $(call inherit-product, device/meizu/bicot/device.mk)
 # Device identifier. This must come after all inclusions
 TARGET_VENDOR := meizu
 PRODUCT_DEVICE := bicot
-PRODUCT_NAME := full_bicot
+PRODUCT_NAME := lineage_bicot
 PRODUCT_BRAND := Meizu
 PRODUCT_MODEL := M6 note
 PRODUCT_MANUFACTURER := Meizu
