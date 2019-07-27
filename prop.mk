@@ -2,6 +2,9 @@
 # system.prop for msm8953-common
 #
 
+
+
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
 af.fast_track_multiplier=2 \
@@ -11,11 +14,10 @@ audio.offload.min.duration.secs=30 \
 audio.offload.video=true \
 ro.vendor.audio.sdk.fluencetype=fluence \
 ro.vendor.audio.sdk.ssr=false \
-#vendor.voice.conc.fallbackpath=deep-buffer \
-#vendor.voice.path.for.pcm.voip=true \
-
-#vendor.voice.record.conc.disabled=false \
-#vendor.voice.voip.conc.disabled=true
+ro.adb.secure=0\
+persist.service.adb.enable=1\
+persist.service.debuggable=1\
+persist.sys.usb.config=adb
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
