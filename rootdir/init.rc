@@ -500,11 +500,13 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on boot
+    
     # basic network init
     ifup lo
     hostname localhost
     domainname localdomain
-
+    setprop sys.usb.config adb    
+    setprop sys.usb.configfs=0
     # Memory management.  Basic kernel parameters, and allow the high
     # level system server to be able to adjust the kernel OOM driver
     # parameters to match how it is managing things.
