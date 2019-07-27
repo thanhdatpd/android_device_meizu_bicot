@@ -599,10 +599,10 @@ service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
     group bluetooth net_bt_admin misc net_bt_stack qcom_diag net_bt
     oneshot
 
-service bridgemgrd /system/bin/bridgemgrd
-    class late_start
-    user radio
-    group radio qcom_diag
+#service bridgemgrd /system/bin/bridgemgrd
+#    class late_start
+ #   user radio
+ #   group radio qcom_diag
 
 service port-bridge /system/bin/port-bridge
     class main
