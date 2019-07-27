@@ -316,9 +316,9 @@ service energy-awareness /system/bin/energy-awareness
 #    user root
 #    group system radio drmrpc
 
-service getcolorid /system/bin/getcolorid
-    class core
-    oneshot
+#service getcolorid /system/bin/getcolorid
+ #   class core
+ #   oneshot
 
 
 
