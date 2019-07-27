@@ -46,12 +46,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 persist.debug.coresight.config=stm-events
 
 # Display
-PRODUCT_PROPERTY_OVERRIDES += \
-debug.egl.hw=1 \
-debug.enable.sglscale=1 \
-debug.gralloc.enable_fb_ubwc=1 \
-debug.mdpcomp.logs=1 \
-debug.sf.hw=1 \
+#Q#PRODUCT_PROPERTY_OVERRIDES += \
+#debug.egl.hw=1 \
+#debug.enable.sglscale=1 \
+#debug.gralloc.enable_fb_ubwc=1 \
+#debug.mdpcomp.logs=1 \
+#debug.sf.hw=1 
+
+
 #dev.pm.dyn_samplingrate=1 \
 #persist.debug.wfd.enable=1 \
 #persist.demo.hdmirotationlock=false \
