@@ -65,7 +65,7 @@ on fs
     wait /dev/block/bootdevice/by-name/modem
     mount vfat /dev/block/bootdevice/by-name/modem /firmware ro context=u:object_r:firmware_file:s0,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
     #write /sys/kernel/boot_adsp/boot 1
-
+    symlink /firmware/image /vendor/firmware
     wait /dev/block/bootdevice/by-name/oem
     mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
     chmod 0660 /dev/qseecom
