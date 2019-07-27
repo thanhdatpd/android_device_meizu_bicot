@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/meizu/bicot/full_bicot.mk)
+$(call inherit-product, device/meizu/bicot/lineage_bicot.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := full_bicot
+PRODUCT_NAME := lineage_bicot
 BOARD_VENDOR := Meizu
 
 PRODUCT_GMS_CLIENTID_BASE := android-meizu
