@@ -147,6 +147,7 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libtinyxml \
     vendor.display.config@1.0 \
+    hwcomposer.msm8953 \
     vendor.display.config@1.0_vendor
 
 # Doze mode
