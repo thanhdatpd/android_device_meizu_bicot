@@ -1,2 +1,0 @@
-allow sh qti_init_shell:file { getattr read open execute };
-

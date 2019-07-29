@@ -1,0 +1,2 @@
+#allow sh qti_init_shell:file { getattr read open execute };
+allow qti_init_shell bluetooth_loader_exec:file { read open execute };
