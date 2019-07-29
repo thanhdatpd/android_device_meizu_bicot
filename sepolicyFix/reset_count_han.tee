@@ -1,1 +1,0 @@
-allow reset_count_han persist_file:file { write read open };
