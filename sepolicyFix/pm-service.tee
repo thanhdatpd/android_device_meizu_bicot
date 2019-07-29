@@ -1,0 +1,1 @@
+allow pm-service per_mgr:capability { net_raw };
