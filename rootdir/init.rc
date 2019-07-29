@@ -682,7 +682,12 @@ service flash_recovery /system/bin/install-recovery.sh
     class main
     oneshot
     disabled
-
+    
+service sensorservice /system/bin/sensorservice
+    class main
+    user system
+    group system
+    
 # update recovery if enabled
 #on property:persist.sys.recovery_update=true
 #    start flash_recovery
