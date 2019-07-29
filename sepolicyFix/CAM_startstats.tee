@@ -1,0 +1,1 @@
+allow CAM_startstats diag_device:chr_file { open ioctl };
