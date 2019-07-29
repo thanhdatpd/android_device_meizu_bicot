@@ -8,8 +8,9 @@ TARGET_BUILD_VARIANT = eng
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include/linux)
 $(shell cp  -f $(DEVICE_PATH)/rootdir/ueventd.rc system/core/rootdir/)
-#sepolicy for fix issues #43 in [ 17.703620] init: Service sysinit does not have a SELinux domain defined.
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
+
+
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
 TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
