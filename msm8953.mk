@@ -83,22 +83,21 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service \
-    audio.a2dp.default \
-    audio.primary.msm8953 \
-    audio.r_submix.default \
-    audio.usb.default \
-    libaudio-resampler \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libqcompostprocbundle \
-    tinymix
+#PRODUCT_PACKAGES += \
+##    android.hardware.audio@2.0-service \
+ #   android.hardware.audio.effect@2.0-impl \
+#    android.hardware.audio.effect@2.0-service \
+ #   android.hardware.soundtrigger@2.0-impl \
+#    android.hardware.soundtrigger@2.0-service \
+ #   audio.a2dp.default \
+ #   audio.primary.msm8953 \
+ #   audio.r_submix.default \
+  #  audio.usb.default \
+  #  libaudio-resampler \
+  #  libqcomvisualizer \
+   # libqcomvoiceprocessing \
+   # libqcompostprocbundle \
+   # tinymix
 
 # Audio configuration
 #PRODUCT_COPY_FILES += \
@@ -119,21 +118,21 @@ PRODUCT_PACKAGES += \
 #	$(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
-    libbt-vendor
+#PRODUCT_PACKAGES += \
+  #  android.hardware.bluetooth@1.0-impl \
+ #   android.hardware.bluetooth@1.0-service \
+  #  libbt-vendor
 
 # Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    camera.device@3.2-impl \
-    camera.msm8953 \
-    libmm-qcamera \
-    Snap \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
+#PRODUCT_PACKAGES += \
+  #  android.hardware.camera.provider@2.4-impl \
+ #   android.hardware.camera.provider@2.4-service \
+ #   camera.device@3.2-impl \
+ #   camera.msm8953 \
+ #   libmm-qcamera \
+#    Snap \
+#    vendor.qti.hardware.camera.device@1.0 \
+#    vendor.qti.hardware.camera.device@1.0_vendor
 
 # Configstore
 PRODUCT_PACKAGES += \
@@ -201,14 +200,14 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0
 
 # Input
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/keylayout/ft5435_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5435_ts.kl \
-   $(LOCAL_PATH)/keylayout/gf3208.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf3208.kl \
-   $(LOCAL_PATH)/keylayout/goodix-ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/goodix-ts.kl \
-   $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
-   $(LOCAL_PATH)/keylayout/ist30xx_ts_input.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ist30xx_ts_input.kl \
-   $(LOCAL_PATH)/keylayout/msm8953-snd-card-mtp_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8953-snd-card-mtp_Button_Jack.kl \
-   $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
+#PRODUCT_COPY_FILES += \
+ #  $(LOCAL_PATH)/keylayout/ft5435_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5435_ts.kl \
+ #  $(LOCAL_PATH)/keylayout/gf3208.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf3208.kl \
+  # $(LOCAL_PATH)/keylayout/goodix-ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/goodix-ts.kl \
+  # $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+  # $(LOCAL_PATH)/keylayout/ist30xx_ts_input.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ist30xx_ts_input.kl \
+  # $(LOCAL_PATH)/keylayout/msm8953-snd-card-mtp_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8953-snd-card-mtp_Button_Jack.kl \
+ #  $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
 # IPA Manager
 PRODUCT_PACKAGES += \
@@ -256,18 +255,18 @@ PRODUCT_PACKAGES += \
     libandroid_net
 
 # OMX
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxSwVencHevc \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw
+#PRODUCT_PACKAGES += \
+  #  libc2dcolorconvert \
+  #  libmm-omxcore \
+  #  libOmxAacEnc \
+ #   libOmxAmrEnc \
+  #  libOmxCore \
+  #  libOmxEvrcEnc \
+   # libOmxQcelp13Enc \
+  #  libOmxSwVencHevc \
+  #  libOmxVdec \
+  #  libOmxVenc \
+ #   libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
