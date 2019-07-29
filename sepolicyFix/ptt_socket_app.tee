@@ -1,1 +1,0 @@
-allow ptt_socket_app wcnss_service:capability { chown setgid setuid };
