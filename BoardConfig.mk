@@ -9,7 +9,7 @@ $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include/linux)
 $(shell cp  -f $(DEVICE_PATH)/rootdir/ueventd.rc system/core/rootdir/)
 
-TARGET_BUILD_APPS := true
+#TARGET_BUILD_APPS := true
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
 TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
