@@ -1,1 +1,1 @@
-allow CAM_startstats diag_device:chr_file { open ioctl };
+allow CAM_startstats diag_device:chr_file { open ioctl read write };
