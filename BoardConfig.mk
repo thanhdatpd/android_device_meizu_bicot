@@ -26,13 +26,13 @@ BOARD_NO_WIFI_HAL := true
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Power
-#TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
 
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Root Folders
-#BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
+BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Sepolicy
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
@@ -84,7 +84,7 @@ KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
 # Platform
 TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno
-#TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 
 # Partitions
@@ -275,7 +275,7 @@ USE_DEVICE_SPECIFIC_GPS := true
 
 
 # Peripheral manager
-#TARGET_PER_MGR_ENABLED := true
+TARGET_PER_MGR_ENABLED := true
 
 # Power
 TARGET_HAS_NO_WIFI_STATS := true
