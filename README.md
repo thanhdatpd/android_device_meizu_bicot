@@ -4,6 +4,7 @@
 Sometime im happy, sometime im sad_ly. just another day come, 
 
 Update timeline:
+- 30/7/2019: Its me, until now, it can booting and, hhmm, loop in bootanimation :(. have something wrong in WindowManagerGlobal.java. i tring to fix it. hope everything will be okey. ^^/ 
 
 - 23/7/2019 few min pass: add this timeline first time, will push now. bye :)
 
