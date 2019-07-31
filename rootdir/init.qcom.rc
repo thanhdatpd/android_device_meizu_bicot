@@ -169,6 +169,10 @@ on boot
     chmod 0755 /system/bin/ip
 
 
+			
+    chown root /system/bin/pppd		
+    chmod 4755 /system/bin/pppd
+
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     #For bridgemgr daemon to inform the USB driver of the correct transport
@@ -195,25 +199,25 @@ on boot
     write /proc/sys/net/core/wmem_max  8388608
 
     #To allow interfaces to get v6 address when tethering is enabled
-   # write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet3/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet4/accept_ra 2
-    #write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
-    #write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
-    #write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio0/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio1/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio2/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio3/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio4/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio5/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio6/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
-   # write /proc/sys/net/ipv6/conf/rmnet_usb1/accept_ra 2
-   #write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet3/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet4/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio0/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio1/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio2/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio3/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio4/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio5/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio6/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_usb1/accept_ra 2
+    write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
@@ -234,10 +238,10 @@ on boot
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
     # Allow access to emmc rawdump block partition and dload sysfs node
-    #chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
-    #chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
-    #chown root system /sys/kernel/dload/emmc_dload
-    #chmod 0660 /sys/kernel/dload/emmc_dload
+    chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
+    chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
+    chown root system /sys/kernel/dload/emmc_dload
+    chmod 0660 /sys/kernel/dload/emmc_dload
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -266,7 +270,10 @@ on post-fs-data
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
-
+    
+    mkdir /data/misc/port_bridge 0770 radio radio		
+    chmod 0770 /data/misc/port_bridge
+    
     #create netmgr log dir
     mkdir /data/misc/netmgr 0770 radio radio
     chmod 0770 /data/misc/netmgr
@@ -299,7 +306,7 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /persist
     chmod 0771 /persist
-    chown system system /persist/WCNSS_qcom_wlan_nv.bin
+    chown system system /system/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
@@ -634,16 +641,19 @@ service ipacm /system/bin/ipacm
     class main
     user net_admin
     group net_admin inet
+    disabled
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw qcom_diag usb net_admin
+    disabled
 
 service sensors /system/bin/sensors.qcom
     class core
     user root
     group root
+    disabled
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -803,7 +813,7 @@ service wifi_ftmd /system/bin/wifi_ftmd
 on property:wifi.ftmd.load=true
     insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
 
-service cnss_diag /system/bin/cnss_diag -q
+service cnss_diag /system/bin/cnss_diag -q -f
     class main
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
