@@ -702,11 +702,6 @@ service flash_recovery /system/bin/install-recovery.sh
     oneshot
     disabled
     
-service sensorservice /system/bin/sensorservice
-    class late_start
-    user root
-    group root
-    disabled
     
 # update recovery if enabled
 #on property:persist.sys.recovery_update=true
