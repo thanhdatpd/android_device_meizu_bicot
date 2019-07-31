@@ -48,9 +48,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml
 
 # ConsumerIr
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl \
-    android.hardware.ir@1.0-service
+#PRODUCT_PACKAGES += \
+ #   android.hardware.ir@1.0-impl \
+ #   android.hardware.ir@1.0-service
 
 # Ramdisk
 PRODUCT_PACKAGES += \
