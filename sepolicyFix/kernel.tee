@@ -1,1 +1,1 @@
-allow kernel persist_file:file { write read open };
+allow kernel persist_file:file { open read write };
