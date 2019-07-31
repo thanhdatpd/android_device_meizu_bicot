@@ -69,11 +69,18 @@ on init
     chown system system /dev/stune/background/tasks
     chown system system /dev/stune/system-background/tasks
     chown system system /dev/stune/top-app/tasks
+    
+    chown system system /dev/mz_rpmb_ctl
+	chmod 0600 /dev/mz_rpmb_ctl
+    
     chmod 0664 /dev/stune/tasks
     chmod 0664 /dev/stune/foreground/tasks
     chmod 0664 /dev/stune/background/tasks
     chmod 0664 /dev/stune/system-background/tasks
     chmod 0664 /dev/stune/top-app/tasks
+    
+    chown system system /dev/hardwareinfo
+	chmod 0664 /dev/hardwareinfo
 
     # Mount staging areas for devices managed by vold
     # See storage config details at http://source.android.com/tech/storage/
@@ -322,7 +329,7 @@ on post-fs
     mkdir /cache/recovery 0770 system cache
 
     # Backup/restore mechanism uses the cache partition
-    mkdir /cache/backup_stage 0700 system system
+    mkdir /cache/backup_stage 0755 system system
     mkdir /cache/backup 0700 system system
 
     #change permissions on vmallocinfo so we can grab it from bugreports
@@ -422,6 +429,8 @@ on post-fs-data
     mkdir /data/property 0700 root root
     mkdir /data/tombstones 0771 system system
 
+    mkdir /data/fpc 0770 system system
+
     # create dalvik-cache, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 root root
     # create the A/B OTA directory, so as to enforce our permissions
@@ -476,7 +485,7 @@ on post-fs-data
 
     mkdir /data/cache 0770 system cache
     mkdir /data/cache/recovery 0770 system cache
-    mkdir /data/cache/backup_stage 0700 system system
+    mkdir /data/cache/backup_stage 0755 system system
     mkdir /data/cache/backup 0700 system system
 
     init_user0
@@ -591,7 +600,16 @@ on boot
 
     # Define default initial receive window size in segments.
     setprop net.tcp.default_init_rwnd 60
-
+    # M80 TP_forcetouch_daemon
+    chown system system /sys/devices/mx_tsp/synad_pid
+    chmod 664 /sys/devices/mx_tsp/synad_pid
+    chown system system /sys/devices/mx_tsp/rmidev/data
+    chmod 664 /sys/devices/mx_tsp/rmidev/data
+    chmod 0666 /dev/block/mmcblk0p50
+    chmod 0666 /dev/block/mmcblk0p51
+    # Add by kai.du.archermind
+    chown system system /sys/rstinfo/rstinfo_enable
+    
     class_start core
 
 on nonencrypted
@@ -668,8 +686,9 @@ service console /system/bin/sh
     class core
     console
     disabled
-    user shell
-    group shell log readproc
+    #user shell
+    #group shell log readproc
+    group root system
     seclabel u:r:shell:s0
 
 on property:ro.debuggable=1
@@ -691,3 +710,22 @@ service sensorservice /system/bin/sensorservice
 # update recovery if enabled
 #on property:persist.sys.recovery_update=true
 #    start flash_recovery
+
+
+
+on init
+	chown root system /dev/netdiagn
+	chmod 0660 /dev/netdiagn
+    chown root system /dev/netdiagn
+    chmod 0660 /dev/netdiagn
+    chown -R root system /sys/class/rtnetds_cls/netdiagn
+    chown root system /sys/class/rtnetds_cls/netdiagn/clrum
+    chown root system /sys/class/rtnetds_cls/netdiagn/fhync
+    chown root system /sys/class/rtnetds_cls/netdiagn/mem
+    chown root system /sys/class/rtnetds_cls/netdiagn/wrxts
+    chown root system /sys/class/rtnetds_cls/netdiagn/mrxts
+    chown root system /sys/class/rtnetds_cls/netdiagn/notify
+    chown root system /sys/class/rtnetds_cls/netdiagn/params
+
+
+
