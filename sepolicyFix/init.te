@@ -1,0 +1,1 @@
+allow init block_device:blk_file setattr;
