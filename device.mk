@@ -13,9 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-LOCAL_PATH := device/meizu/bicot
 $(call inherit-product, vendor/meizu/bicot/bicot-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+LOCAL_PATH := device/meizu/bicot
+
 PRODUCT_SHIPPING_API_LEVEL := 25
 
 
