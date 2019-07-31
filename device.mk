@@ -13,20 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+LOCAL_PATH := $(call my-dir)
 $(call inherit-product, vendor/meizu/bicot/bicot-vendor.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+PRODUCT_SHIPPING_API_LEVEL := 25
 
 
-
-# merged to here
-#$(call inherit-product, device/meizu/bicot/msm8953.mk)
-
-
-
-
-PRODUCT_PACKAGES += \
-    otapreopt_script
+#PRODUCT_PACKAGES += \
+#    otapreopt_script
 
 # Boot control
 #PRODUCT_PACKAGES += \
@@ -34,8 +28,8 @@ PRODUCT_PACKAGES += \
 #    android.hardware.boot@1.0-service 
  #   bootctrl.msm8953 
 
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
+#PRODUCT_PACKAGES_DEBUG += \
+ #   bootctl
 
 #PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 #    bootctrl.msm8953 \
@@ -88,35 +82,8 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 
-
-
-#
-# Copyright (C) 2017 The LineageOS Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-#$(call inherit-product, vendor/meizu/msm8953-common/msm8953-common-vendor.mk)
-
-
-# Init
-#TARGET_INIT_VENDOR_LIB := libinit_msm8953
-#TARGET_LIBINIT_MSM8953_DEFINES_FILE := device/meizu/bicot/init/init_msm8953.cpp
-
-
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 #DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
@@ -200,13 +167,13 @@ PRODUCT_PACKAGES += \
 #	$(LOCAL_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt
 
 # XML Audio configuration files
-#PRODUCT_COPY_FILES += \
-#	$(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-#	$(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
-#	$(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-#	$(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-#	$(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
-#	$(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+	$(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+	$(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+	$(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+	$(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+	$(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 # Bluetooth
 #PRODUCT_PACKAGES += \
@@ -240,9 +207,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8953 \
     vendor.display.config@1.0_vendor
 
-# Doze mode
-#PRODUCT_PACKAGES += \
- #   XiaomiDoze
+
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -255,10 +220,7 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# FM
-#PRODUCT_PACKAGES += \
-#    FMRadio \
-#    libfmjni
+
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -424,9 +386,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
-# VNDK
-#PRODUCT_PACKAGES += \
-#    vndk-sp
 
 # Thermal
 PRODUCT_PACKAGES += \
