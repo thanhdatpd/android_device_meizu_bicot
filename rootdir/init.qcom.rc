@@ -1212,5 +1212,4 @@ service fingerprintd /system/bin/fingerprintd
 service sensorservice /system/bin/sensorservice
     class late_start
     user root
-    group root
-    disabled    
+    group root  
