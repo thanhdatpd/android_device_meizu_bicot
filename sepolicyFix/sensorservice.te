@@ -3,3 +3,18 @@ type sensorservice, domain;
 type sensorservice_exec, exec_type, file_type;
 
 init_daemon_domain(sensorservice)
+
+allow sensorservice diag_device:chr_file { ioctl open read write };
+allow sensorservice location:binder transfer;
+allow sensorservice mm-qcamerad:binder transfer;
+allow sensorservice self:capability dac_override;
+allow sensorservice self:capability2 block_suspend;
+allow sensorservice self:socket { create ioctl read };
+allow sensorservice sensors_persist_file:dir search;
+allow sensorservice sensors_persist_file:file { open read };
+allow sensorservice sensorservice_service:service_manager add;
+allow sensorservice servicemanager:binder { call transfer };
+allow sensorservice sysfs:file { open read };
+allow sensorservice sysfs_wake_lock:file { open read write };
+allow sensorservice system_data_file:dir { add_name create write };
+allow sensorservice system_data_file:file { create open write };
