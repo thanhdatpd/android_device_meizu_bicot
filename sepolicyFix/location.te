@@ -1,0 +1,3 @@
+allow location sensorservice:binder call;
+allow location sensorservice:fd use;
+allow location sensorservice:unix_stream_socket { read write };
