@@ -16,7 +16,7 @@ PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh
 
-
+BOARD_USES_ALSA_AUDIO :=true
 TARGET_IS_HEADLESS := true
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
