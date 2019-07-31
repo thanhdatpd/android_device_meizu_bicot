@@ -1,7 +1,0 @@
-# sysinit service
-#type sysinit, domain;
-#type sysinit_exec, exec_type, file_type;
-#init_daemon_domain(sysinit)
-#allow sysinit shell_exec:file { getattr read open execute };
-#allow sysinit system_file:dir { open read };
-#allow sysinit toolbox_exec:file { open read execute_no_trans execute getattr};
