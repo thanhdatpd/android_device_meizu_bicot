@@ -83,21 +83,21 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Audio
-#PRODUCT_PACKAGES += \
-##    android.hardware.audio@2.0-service \
- #   android.hardware.audio.effect@2.0-impl \
-#    android.hardware.audio.effect@2.0-service \
- #   android.hardware.soundtrigger@2.0-impl \
-#    android.hardware.soundtrigger@2.0-service \
- #   audio.a2dp.default \
- #   audio.primary.msm8953 \
- #   audio.r_submix.default \
-  #  audio.usb.default \
-  #  libaudio-resampler \
-  #  libqcomvisualizer \
-   # libqcomvoiceprocessing \
-   # libqcompostprocbundle \
-   # tinymix
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@2.0-service \
+    android.hardware.soundtrigger@2.0-impl \
+    android.hardware.soundtrigger@2.0-service \
+    audio.a2dp.default \
+    audio.primary.msm8953 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcompostprocbundle \
+    tinymix
 
 # Audio configuration
 #PRODUCT_COPY_FILES += \
@@ -124,15 +124,15 @@ PRODUCT_PACKAGES += \
   #  libbt-vendor
 
 # Camera
-#PRODUCT_PACKAGES += \
-  #  android.hardware.camera.provider@2.4-impl \
- #   android.hardware.camera.provider@2.4-service \
- #   camera.device@3.2-impl \
- #   camera.msm8953 \
- #   libmm-qcamera \
-#    Snap \
-#    vendor.qti.hardware.camera.device@1.0 \
-#    vendor.qti.hardware.camera.device@1.0_vendor
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service \
+    camera.device@3.2-impl \
+    camera.msm8953 \
+    libmm-qcamera \
+    Snap \
+    vendor.qti.hardware.camera.device@1.0 \
+    vendor.qti.hardware.camera.device@1.0_vendor
 
 # Configstore
 PRODUCT_PACKAGES += \
@@ -215,8 +215,8 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 
 # IRQ
-#PRODUCT_COPY_FILES += \
-#   $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -243,16 +243,16 @@ PRODUCT_PACKAGES += \
 #    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
  #   $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
-#PRODUCT_COPY_FILES += \
- #   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
- #   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
- #   frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 # Netutils
-#PRODUCT_PACKAGES += \
-   # netutils-wrapper-1.0 \
-    #android.system.net.netd@1.0 \
-    #libandroid_net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0 \
+    android.system.net.netd@1.0 \
+    libandroid_net
 
 # OMX
 #PRODUCT_PACKAGES += \
