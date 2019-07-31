@@ -142,11 +142,7 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service \
+    audiod \
     audio.a2dp.default \
     audio.primary.msm8953 \
     audio.r_submix.default \
@@ -156,6 +152,9 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     tinymix
+
+
+
 
 # Audio configuration
 #PRODUCT_COPY_FILES += \
@@ -187,6 +186,10 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     Snap 
 
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
 
 # Configstore
 PRODUCT_PACKAGES += \
