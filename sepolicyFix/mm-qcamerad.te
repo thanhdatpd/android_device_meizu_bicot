@@ -1,1 +1,4 @@
 allow mm-qcamerad diag_device:chr_file { ioctl open read write };
+allow mm-qcamerad sensorservice:binder call;
+allow mm-qcamerad sensorservice:fd use;
+allow mm-qcamerad sensorservice:unix_stream_socket { read write };
