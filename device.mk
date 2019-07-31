@@ -183,36 +183,42 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    camera.device@3.2-impl \
     camera.msm8953 \
     libmm-qcamera \
-    Snap \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
+    Snap 
+
 
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
 
 # Display
-PRODUCT_PACKAGES += \
-    libdisplayconfig \
-    liboverlay \
-    libqdMetaData.system \
-    libgenlock \
-    libtinyxml \
-    vendor.display.config@1.0 \
-    hwcomposer.msm8953 \
-    vendor.display.config@1.0_vendor
+#PRODUCT_PACKAGES += \
+ #   libdisplayconfig \
+  #  liboverlay \
+  #  libqdMetaData.system \
+   # libgenlock \
+   # libtinyxml \
+   # vendor.display.config@1.0 \
+   # hwcomposer.msm8953 \
+   # vendor.display.config@1.0_vendor
 
+
+
+PRODUCT_PACKAGES += \
+    copybit.msm8953 \
+    gralloc.msm8953 \
+    hwcomposer.msm8953 \
+    memtrack.msm8953 \
+    liboverlay \
+    libjni_livedisplay \
+    libtinyxml
 
 
 # DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+#PRODUCT_PACKAGES += \
+ #   android.hardware.drm@1.0-impl \
+  #  android.hardware.drm@1.0-service
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -222,18 +228,14 @@ PRODUCT_PACKAGES += \
 
 
 
-# Gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
+
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
     gps.msm8953 \
     libcurl \
-    libgnss \
     libgnsspps
+    
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
@@ -248,9 +250,9 @@ PRODUCT_PACKAGES += \
     chargeonlymode
 
 # HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
+#PRODUCT_PACKAGES += \
+ #   android.hidl.base@1.0 \
+ #   android.hidl.manager@1.0
 
 # Input
 #PRODUCT_COPY_FILES += \
@@ -276,14 +278,12 @@ PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
+#PRODUCT_PACKAGES += \
+ #   android.hardware.keymaster@3.0-impl \
+  #  android.hardware.keymaster@3.0-service
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
     lights.msm8953
 
 # LiveDisplay native
@@ -368,8 +368,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
+    sensors.msm8953
 
 #PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
@@ -391,14 +390,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     thermal.msm8953
 
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service
+##PRODUCT_PACKAGES += \
+  #  android.hardware.thermal@1.0-impl \
+  #  android.hardware.thermal@1.0-service
 
 # Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+#PRODUCT_PACKAGES += \
+  #  android.hardware.vibrator@1.0-impl \
+   # android.hardware.vibrator@1.0-service
 
 # Whitelisted app
 PRODUCT_COPY_FILES += \
