@@ -1,1 +1,1 @@
-#/system/bin/sensorservice   u:object_r:sensorservice_exec:s0
+/system/bin/sensorservice   u:object_r:sensorservice_exec:s0
