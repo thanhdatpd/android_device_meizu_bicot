@@ -26,11 +26,40 @@ Update timeline:
 
 
 
+Initialize a repository with LineageOS lastest sercurity patch:
+
+    repo init -u git://github.com/thanhdatpd/android.git -b lineage-14.1
+
+Initialize a repository with custom version LineageOS:
+
+    repo init -u git://github.com/thanhdatpd/android.git -b lineage-14.1 -m lineage-14.1-bicot-v0.1.xml
+  
+Download the source code:
+
+    repo sync -j50 --force-sync -f --no-tags --no-clone-bundle
+
+Build the code:
+
+    source build/envsetup.sh
+    breakfast bicot
+    make -j8 bacon showcommands 2>&1 | tee build.log
+
+
+
+
+
+
+
+
+
+
 Note:
 
 - Because i used prebuilt kernel, the build can not include kernel header file ( .h) so i import those file to /include like path the build need. Source i take from this: https://android.googlesource.com/platform/hardware/qcom/msm8996/+/refs/tags/android-7.1.2_r36/kernel-headers and this https://android.googlesource.com/kernel/msm/+/refs/tags/android-7.1.2_r0.33/include/linux/ . Hope this can help anyone like me ^^.
 
 
+
+Thanks to: Yuan9, Divis1969,... and more for knowledge i learned and used. 
 
 
 
