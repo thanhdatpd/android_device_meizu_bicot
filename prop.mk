@@ -3,7 +3,7 @@
 #
 
 
-
+PRODUCT_PROPERTY_OVERRIDES += service.adb.root=1
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
