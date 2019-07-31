@@ -1213,4 +1213,4 @@ service sensorservice /system/bin/sensorservice
     class late_start
     user root
     group root  
-    seclabel u:r:sensorservice_exec:s0
+    #seclabel u:r:sensorservice_exec:s0
