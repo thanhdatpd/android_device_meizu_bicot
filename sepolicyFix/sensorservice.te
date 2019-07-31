@@ -17,4 +17,5 @@ allow sensorservice servicemanager:binder { call transfer };
 allow sensorservice sysfs:file { open read };
 allow sensorservice sysfs_wake_lock:file { open read write };
 allow sensorservice system_data_file:dir { add_name create write };
-allow sensorservice system_data_file:file { create open write };
+allow sensorservice system_data_file:file { create open write read };
+
