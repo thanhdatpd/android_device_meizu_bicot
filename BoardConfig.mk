@@ -40,7 +40,7 @@ BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Inherit from the proprietary version
 -include vendor/meizu/bicot/BoardConfigVendor.mk
-#USE_LEGACY_AUDIO_POLICY := 1
+USE_LEGACY_AUDIO_POLICY := 0
 USE_CUSTOM_AUDIO_POLICY := 1
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
