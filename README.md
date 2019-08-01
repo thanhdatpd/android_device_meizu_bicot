@@ -4,7 +4,7 @@
 Sometime im happy, sometime im sad_ly. just another day come, 
 
 Update timeline:
-- 31/7/2017: okey, me again. No more problem with WindowManagerGlobal.java, it come from Irconsumer, hal of it was set but board didnt have, this make runtimexception and skip create Wm. So when wm.displayReady() called, it will make NullPointerException then rase problem display cant use . I dont sure it right 100% but this maybe help other person like me. Have a nice day ^^
+- 31/7/2019: okey, me again. No more problem with WindowManagerGlobal.java, it come from Irconsumer, hal of it was set but board didnt have, this make runtimexception and skip create Wm. So when wm.displayReady() called, it will make NullPointerException then rase problem display cant use . I dont sure it right 100% but this maybe help other person like me. Have a nice day ^^
 
 - 30/7/2019: Its me, until now, it can booting and, hhmm, loop in bootanimation :(. have something wrong in WindowManagerGlobal.java. i tring to fix it. hope everything will be okey. ^^/ 
 
