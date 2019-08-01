@@ -1,13 +1,11 @@
 DEVICE_PATH := device/meizu/bicot
-#ALLOW_MISSING_DEPENDENCIES := TRUE 
-#RECOVERY_VARIANT := twrp
-#TARGET_NO_RECOVERY := true
+
 WITHOUT_CHECK_API := true
 TARGET_BUILD_VARIANT = eng
 # for skip some eror because build with prebuilt kernel
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include/linux)
-$(shell cp  -f $(DEVICE_PATH)/rootdir/ueventd.rc system/core/rootdir/)
+
 
 #TARGET_BUILD_APPS := true
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
@@ -16,7 +14,7 @@ PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh
 
-BOARD_USES_ALSA_AUDIO :=true
+#BOARD_USES_ALSA_AUDIO :=true
 TARGET_IS_HEADLESS := true
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 #BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -40,8 +38,8 @@ BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
 # Inherit from the proprietary version
 -include vendor/meizu/bicot/BoardConfigVendor.mk
-#USE_LEGACY_AUDIO_POLICY := 0
-#USE_CUSTOM_AUDIO_POLICY := 1
+USE_LEGACY_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
