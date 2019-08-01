@@ -306,8 +306,8 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /persist
     chmod 0771 /persist
-    chown system system /system/etc/wifi/nvbin/msm8953_293_0x00_0x02_0x00_nv.bin
-    chown system system /persist/WCNSS_qcom_wlan_nv.bin
+    chown root root /system/etc/wifi/nvbin/msm8953_293_0x00_0x02_0x00_nv.bin
+    chown root root /persist/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
