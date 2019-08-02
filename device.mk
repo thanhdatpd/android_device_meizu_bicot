@@ -21,32 +21,12 @@ LOCAL_PATH := device/meizu/bicot
 PRODUCT_SHIPPING_API_LEVEL := 25
 
 
-#PRODUCT_PACKAGES += \
-#    otapreopt_script
 
-# Boot control
-#PRODUCT_PACKAGES += \
-#    android.hardware.boot@1.0-impl \
-#    android.hardware.boot@1.0-service 
- #   bootctrl.msm8953 
-
-#PRODUCT_PACKAGES_DEBUG += \
- #   bootctl
-
-#PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-#    bootctrl.msm8953 \
-#   libz
-
-#    libgptutils \
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml
 
-# ConsumerIr
-#PRODUCT_PACKAGES += \
- #   android.hardware.ir@1.0-impl \
- #   android.hardware.ir@1.0-service
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -58,16 +38,6 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
-
-# Update engine
-#PRODUCT_PACKAGES += \
-  #  brillo_update_payload \
-  #  update_engine \
-  #  update_engine_sideload \
-   # update_verifier
-
-#PRODUCT_PACKAGES_DEBUG += \
-   # update_engine_client
 
 
 PRODUCT_PACKAGES += \
@@ -83,10 +53,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprintd
 
-
-# Overlays
-#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     Settings \
@@ -175,17 +141,14 @@ PRODUCT_COPY_FILES += \
 	$(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
 	$(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
-# Bluetooth
-#PRODUCT_PACKAGES += \
-  #  android.hardware.bluetooth@1.0-impl \
- #   android.hardware.bluetooth@1.0-service \
-  #  libbt-vendor
+
 
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8953 \
     libmm-qcamera \
     Snap 
+
 
 
 # Ebtables
@@ -252,15 +215,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.msm8953
 
-# LiveDisplay native
-#PRODUCT_PACKAGES += \
- #   vendor.lineage.livedisplay@1.0-service-sdm
 
-# Media
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/media_codecs.xml::$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-#    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
- #   $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
