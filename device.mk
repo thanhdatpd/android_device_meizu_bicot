@@ -324,7 +324,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
-
+PRODUCT_PACKAGES += \
+    android.hidl.base \
+    android.hidl.manager
 
 # Wifi
 PRODUCT_PACKAGES += \
