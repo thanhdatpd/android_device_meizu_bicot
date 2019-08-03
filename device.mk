@@ -207,9 +207,9 @@ PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Keymaster HAL
-#PRODUCT_PACKAGES += \
- #   android.hardware.keymaster@3.0-impl \
-  #  android.hardware.keymaster@3.0-service
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster \
+    android.hardware.keymaster
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -223,24 +223,24 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 # Netutils
-#PRODUCT_PACKAGES += \
-  #  netutils-wrapper-1.0 \
-  #  android.system.net.netd@1.0 \
-  #  libandroid_net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0 \
+    android.system.net.netd \
+    libandroid_net
 
 # OMX
-#PRODUCT_PACKAGES += \
-  #  libc2dcolorconvert \
-  #  libmm-omxcore \
-  #  libOmxAacEnc \
- #   libOmxAmrEnc \
-  #  libOmxCore \
-  #  libOmxEvrcEnc \
-   # libOmxQcelp13Enc \
-  #  libOmxSwVencHevc \
-  #  libOmxVdec \
-  #  libOmxVenc \
- #   libstagefrighthw
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxSwVencHevc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
@@ -311,14 +311,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     thermal.msm8953
 
-##PRODUCT_PACKAGES += \
-  #  android.hardware.thermal@1.0-impl \
-  #  android.hardware.thermal@1.0-service
+PRODUCT_PACKAGES += \
+    android.hardware.thermal \
+    android.hardware.thermal
 
-# Vibrator
-#PRODUCT_PACKAGES += \
-  #  android.hardware.vibrator@1.0-impl \
-   # android.hardware.vibrator@1.0-service
+ Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator \
+    android.hardware.vibrator
 
 # Whitelisted app
 PRODUCT_COPY_FILES += \
