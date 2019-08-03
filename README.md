@@ -5,6 +5,8 @@ Sometime im happy, sometime im sad_ly. just another day come,
 
 Update timeline:
 
+- 3/8/2019: aaaa, im so happy. it can booting okey althought have a lot error, missing alot function. 
+
 - 1/8/2019: ya, how are you today, me? sad. Okey, the rom pass some more step, it came to start systemui, problem in here. When systemui call flashlight for check or dex or etc... it need call to camera2, in here have problem when camera2 read metadata(Supported FPS ranges cannot be null.). So crash came, VM shutting down :(. i will trying more. hope evething will be okeyy.
 
 - 31/7/2019: okey, me again. No more problem with WindowManagerGlobal.java, it come from Irconsumer, hal of it was set but board didnt have, this make runtimexception and skip create Wm. So when wm.displayReady() called, it will make NullPointerException then rase problem display cant use . I dont sure it right 100% but this maybe help other person like me. Have a nice day ^^
