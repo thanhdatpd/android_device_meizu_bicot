@@ -224,7 +224,7 @@ PRODUCT_COPY_FILES += \
 
 # Netutils
 PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0 \
+    netutils-wrapper \
     android.system.net.netd \
     libandroid_net
 
@@ -304,21 +304,18 @@ PRODUCT_COPY_FILES += \
 
 # USB HAL
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
+    android.hardware.usb
 
 # Thermal
 PRODUCT_PACKAGES += \
     thermal.msm8953
 
-PRODUCT_PACKAGES += \
-    android.hardware.thermal \
-    android.hardware.thermal
+PRODUCT_PACKAGES += android.hardware.thermal 
+
 
  #Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator \
-    android.hardware.vibrator
+PRODUCT_PACKAGES += android.hardware.vibrator
+
 
 # Whitelisted app
 PRODUCT_COPY_FILES += \
