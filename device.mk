@@ -53,13 +53,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprintd
 
-
-#PRODUCT_ENFORCE_RRO_TARGETS := \
-  #  Settings \
-  #  SettingsProvider \
-  #  SystemUI \
-  #  framework-res \
-
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -249,8 +242,6 @@ PRODUCT_PACKAGES += \
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
-# Properties
--include device/meizu/bicot/prop.mk
 
 # QMI
 PRODUCT_PACKAGES += \
