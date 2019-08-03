@@ -1,4 +1,5 @@
 DEVICE_PATH := device/meizu/bicot
+TARGET_COPY_OUT_VENDOR := system/vendor
 
 
 WITHOUT_CHECK_API := true
@@ -14,14 +15,11 @@ PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/meizu/bicot/rootdir/sh,root)
 
 
-
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 TARGET_BUILD_VARIANT = eng
 TARGET_IS_HEADLESS := true
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
 
-
-#BOARD_NO_WIFI_HAL := true
 
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -44,6 +42,8 @@ USE_XML_AUDIO_POLICY_CONF := 1
 
 USE_LEGACY_AUDIO_POLICY := 1
 USE_CUSTOM_AUDIO_POLICY := 0
+
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
@@ -65,13 +65,11 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-#TARGET_NO_KERNEL := true
 BUILD_KERNEL_MODULES := flase
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 androidboot.selinux=permissive buildvariant=eng
 BOARD_KERNEL_CMDLINE += earlyprintk=serial,ttyS0,115200 loglevel=7 console=ttyHSL0,115200,n8
@@ -87,6 +85,8 @@ KERNEL_MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
 TARGET_BOARD_PLATFORM := msm8953
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
+TARGET_INIT_VENDOR_LIB := libinit_bicot
+TARGET_RECOVERY_DEVICE_MODULES := libinit_bicot
 
 
 # Partitions
@@ -95,12 +95,9 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 BOARD_SYSTEM_FILESYSTEM := ext4
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 25027395072
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_FLASH_BLOCK_SIZE := 262144 
 BOARD_CACHEIMAGE_PARTITION_SIZE := 446693376
 
-
-# Workaround for error copying vendor files to recovery ramdisk
-TARGET_COPY_OUT_VENDOR := system/vendor
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -126,25 +123,11 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_HAS_REBOOT_EDL := true
 
 
-#add when try fix building rom
-
-
 # Debug
 TWRP_INCLUDE_LOGCAT := true
 
 
-
-
-
-
-######################
-#just test, moved from msm8953-common to here
-######################
-
 VENDOR_PATH := device/meizu/bicot
-
-
-
 
 
 TARGET_BOARD_SUFFIX := _64
@@ -190,13 +173,11 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CNE / DPM
-#BOARD_USES_QCNE := true
+BOARD_USES_QCNE := true
 
 # Cpusets
 ENABLE_CPUSETS := true
 
-# Crypto
-#TARGET_HW_DISK_ENCRYPTION := false
 
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
@@ -248,8 +229,6 @@ TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
-# Lights
-#TARGET_PROVIDES_LIBLIGHT := true
 
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
