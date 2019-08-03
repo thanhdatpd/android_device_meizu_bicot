@@ -1,0 +1,22 @@
+#FLYME@limin.Add the Key MAP.
+#FLYME@chenjianbo.Add main display key MAP
+key 624  DOUBLE_TAP
+key 625  ONECE_TAP
+key 626  LONG_PRESS
+
+key 640  SWIPE_X_LEFT
+key 641  SWIPE_X_RIGHT
+key 642  SWIPE_Y_UP
+key 643  SWIPE_Y_DOWN
+
+key 656  UNICODE_E
+key 657  UNICODE_C
+key 658  UNICODE_W
+key 659  UNICODE_M
+key 660  UNICODE_O
+key 661  UNICODE_S
+key 662  UNICODE_V_UP
+key 663  UNICODE_V_DOWN
+key 664  UNICODE_V_L
+key 665  UNICODE_V_R
+key 666  UNICODE_Z
