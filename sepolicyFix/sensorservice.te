@@ -7,9 +7,9 @@ init_daemon_domain(sensorservice)
 allow sensorservice diag_device:chr_file { ioctl open read write };
 allow sensorservice location:binder transfer;
 allow sensorservice mm-qcamerad:binder transfer;
-allow sensorservice self:capability dac_override;
+allow sensorservice self:capability { net_admin dac_override sys_nice };
 allow sensorservice self:capability2 block_suspend;
-allow sensorservice self:socket { create ioctl read };
+allow sensorservice self:socket { create ioctl read write };
 allow sensorservice sensors_persist_file:dir search;
 allow sensorservice sensors_persist_file:file { open read };
 allow sensorservice sensorservice_service:service_manager add;
@@ -19,3 +19,4 @@ allow sensorservice sysfs_wake_lock:file { open read write };
 allow sensorservice system_data_file:dir { add_name create write };
 allow sensorservice system_data_file:file { create open write read };
 
+allow sensorservice proc_net:file { getattr open read };
