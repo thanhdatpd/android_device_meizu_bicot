@@ -148,7 +148,7 @@ case "$usb_config" in
 			    esac
 		      ;;
 	              "msm8952" | "msm8953")
-		          setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
+		          setprop persist.sys.usb.config adb
 		      ;;
 	              "msm8998")
 		          setprop persist.sys.usb.config diag,serial_cdev,rmnet_gsi,adb
