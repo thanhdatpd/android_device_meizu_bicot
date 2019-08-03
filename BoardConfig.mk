@@ -7,19 +7,22 @@ $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr/include/linux)
 
 
-#TARGET_BUILD_APPS := true
+
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicyFix
 TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/meizu/bicot/rootdir/sh,root)
 
-#BOARD_USES_ALSA_AUDIO :=true
+
+
+
+
 TARGET_IS_HEADLESS := true
 BOARD_EGL_CFG := vendor/meizu/bicot/proprietary/lib/egl/egl.cfg
-#BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
-BOARD_NO_WIFI_HAL := true
+
+#BOARD_NO_WIFI_HAL := true
 
 PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -32,11 +35,10 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 # Root Folders
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
-# Sepolicy
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 
-# Inherit from the proprietary version
+
+
 -include vendor/meizu/bicot/BoardConfigVendor.mk
 USE_LEGACY_AUDIO_POLICY := 1
 USE_CUSTOM_AUDIO_POLICY := 0
