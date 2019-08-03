@@ -1,15 +1,9 @@
 [
   {
     "remote": "github",
-    "repository": "thanhdatpd/android_kernel_meizu_msm8953",
-    "target_path": "kernel/meizu/bicot",
-    "revision": "lineage-14.1"
-  },
-  {
-    "remote": "github",
     "repository": "thanhdatpd/android_vendor_meizu_bicot",
     "target_path": "vendor/meizu/bicot",
-    "revision": "lineage-14.1"
+    "revision": "lineage-14.1-new"
   }
   
 ]
