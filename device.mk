@@ -54,11 +54,11 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    Settings \
-    SettingsProvider \
-    SystemUI \
-    framework-res \
+#PRODUCT_ENFORCE_RRO_TARGETS := \
+  #  Settings \
+  #  SettingsProvider \
+  #  SystemUI \
+  #  framework-res \
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
