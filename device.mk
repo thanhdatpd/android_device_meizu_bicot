@@ -315,7 +315,7 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal \
     android.hardware.thermal
 
- Vibrator
+ #Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator \
     android.hardware.vibrator
