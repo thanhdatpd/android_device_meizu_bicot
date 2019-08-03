@@ -252,7 +252,7 @@ TARGET_RIL_VARIANT := caf
 
 # Recovery
 
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab.qcom
 
 
 # SELinux
