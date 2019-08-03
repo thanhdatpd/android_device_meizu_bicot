@@ -27,11 +27,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/meizu/bicot/device.mk)
 
 
-# Kernel
-#PRODUCT_COPY_FILES += \
-#	device/meizu/bicot/prebuilt/Image.gz-dtb:kernel
-
-
 # Device identifier. This must come after all inclusions
 TARGET_VENDOR := meizu
 PRODUCT_DEVICE := bicot
