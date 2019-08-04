@@ -163,8 +163,8 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := false
-BOARD_HAVE_BLUETOOTH_QCOM := false
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
 #BLUETOOTH_HCI_USE_MCT := true
 
 
@@ -215,7 +215,7 @@ TARGET_NO_RPC := true
 
 
 # Filesystem
-#TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
 
 # HIDL
 #DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
