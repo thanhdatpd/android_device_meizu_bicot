@@ -5,6 +5,8 @@ Sometime im happy, sometime im sad_ly. just another day come,
 
 Update timeline:
 
+- 5/8/2019: Hi, one more day overnight :(((. Some function work good: livedisplay, 3G/4G, sms,.. and a lot of thing not work properly like: no sound, no wifi, bluetooth, no call, no fingerprint... There is a long way to go finish, fightttt. 
+
 - 3/8/2019: aaaa, im so happy. it can booting okey althought have a lot error, missing alot function. I already update rom to release v0.0.1 for anyone want to debug test ,fix error (remember remove system/bin/mm-qcamera-daemon)
 
 - 1/8/2019: ya, how are you today, me? sad. Okey, the rom pass some more step, it came to start systemui, problem in here. When systemui call flashlight for check or dex or etc... it need call to camera2, in here have problem when camera2 read metadata(Supported FPS ranges cannot be null.). So crash came, VM shutting down :(. i will trying more. hope evething will be okeyy.
