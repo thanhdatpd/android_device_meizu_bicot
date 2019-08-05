@@ -280,6 +280,17 @@ on property:sys.charging.disable=1
     start chargingdisable
 
 
+service goodixfpd /system/bin/goodixfingerprintd
+    class late_start
+    user root
+    group system
+    
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system 
+    group system 
+
+
 on boot
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/top-app/boost/cpus 4-7
