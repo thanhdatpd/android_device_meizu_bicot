@@ -1,21 +1,21 @@
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor conservative
-    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor conservative
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor ondemand
     #####
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652000
-    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 652000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 100000
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq 100000
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 100000
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 100000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 2016000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 2016000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 2016000
@@ -25,8 +25,8 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq 2016000
     write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 2016000
     ######
-    write /sys/devices/system/cpu/cpufreq/conservative/up_threshol 90
-    write /sys/devices/system/cpu/cpufreq/conservative/sampling_rate 60000
-    write /sys/devices/system/cpu/cpufreq/conservative/sampling_down_factor 3
-    write /sys/devices/system/cpu/cpufreq/conservative/down_threshold 30
-    write /sys/devices/system/cpu/cpufreq/conservative/freq_step 15
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshol 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 60000
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 3
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_threshold 30
+    write /sys/devices/system/cpu/cpufreq/ondemand/freq_step 15
