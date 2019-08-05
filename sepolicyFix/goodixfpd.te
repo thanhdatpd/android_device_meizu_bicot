@@ -22,6 +22,10 @@ allow goodixfpd self:capability dac_override;
 allow goodixfpd storage_file:dir search;
 allow goodixfpd storage_file:lnk_file read;
 r_dir_file(goodixfpd, firmware_file)
+allow goodixfpd debug_prop:property_service set;
+allow goodixfpd default_android_service:service_manager add;
+allow goodixfpd device:chr_file { ioctl open read write };
+
 
 
 #allow goodixfpd gx_fpd_data_file:file create_file_perms;
