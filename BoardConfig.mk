@@ -32,8 +32,6 @@ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 # Root Folders
 BOARD_ROOT_EXTRA_FOLDERS := dsp firmware persist
 
-USE_DEVICE_SPECIFIC_CAMERA := true
-
 
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
@@ -50,13 +48,11 @@ TARGET_SCREEN_WIDTH := 1080
 TARGET_OTA_ASSERT_DEVICE := m6note,m6n,m1721,M1721,M6Note,bicot
 
 
-
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
-
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
@@ -128,9 +124,6 @@ TW_HAS_REBOOT_EDL := true
 TWRP_INCLUDE_LOGCAT := true
 
 
-VENDOR_PATH := device/meizu/bicot
-
-
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
@@ -162,11 +155,9 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 #BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
-#BLUETOOTH_HCI_USE_MCT := true
 
 
 # Charger
@@ -202,8 +193,6 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 
-TARGET_USERIMAGES_USE_EXT4 := true
-
 #FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := false
 TARGET_QCOM_NO_FM_FIRMWARE := true
@@ -214,27 +203,18 @@ USE_DEVICE_SPECIFIC_GPS := true
 TARGET_NO_RPC := true
 
 
-
 # Filesystem
 TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
 
-# HIDL
-#DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-#DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
-
-
-# Lineage Hardware
-#BOARD_HARDWARE_CLASS += \
- #   $(VENDOR_PATH)/lineagehw
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
 
+# Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 TARGET_USE_SDCLANG := true
-
 USE_SENSOR_MULTI_HAL := true
 
 # Peripheral manager
@@ -244,20 +224,20 @@ TARGET_PER_MGR_ENABLED := true
 TARGET_HAS_NO_WIFI_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
-# Qualcomm
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_USE_SDCLANG := true
 
 # RIL
 TARGET_RIL_VARIANT := caf
 
 # Recovery
-
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab.qcom
 
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
+
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 
 # Wi-Fi
