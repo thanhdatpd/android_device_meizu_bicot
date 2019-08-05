@@ -1,0 +1,36 @@
+type goodixfpd, domain;
+type goodixfpd_exec, exec_type, file_type;
+
+# goodixfpd
+init_daemon_domain(goodixfpd)
+binder_use(goodixfpd)
+
+allow goodixfpd fingerprintd_service:service_manager { add find };
+use_keystore(goodixfpd)
+allow goodixfpd keystore:keystore_key { add_auth };
+binder_call(goodixfpd, system_server);
+allow goodixfpd permission_service:service_manager find;
+allow goodixfpd tee_device:chr_file rw_file_perms;
+allow goodixfpd ion_device:chr_file rw_file_perms;
+allow goodixfpd self:socket create_socket_perms;
+allow goodixfpd self:{ netlink_socket netlink_generic_socket } create_socket_perms;
+set_prop(goodixfpd, system_prop)
+allow goodixfpd fingerprintd:binder { transfer call };
+allow goodixfpd fuse:dir search;
+allow goodixfpd fuse:file { getattr open append };
+allow goodixfpd self:capability dac_override;
+allow goodixfpd storage_file:dir search;
+allow goodixfpd storage_file:lnk_file read;
+r_dir_file(goodixfpd, firmware_file)
+
+
+#allow goodixfpd gx_fpd_data_file:file create_file_perms;
+#allow goodixfpd gx_fpd_data_file:dir create_dir_perms;
+#allow gx_fpd gx_fpd_service:service_manager { add find };
+#allow gx_fpd gx_fpd_device:chr_file rw_file_perms;
+
+
+
+
+
+
