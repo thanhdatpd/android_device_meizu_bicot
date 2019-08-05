@@ -57,7 +57,10 @@ on post-fs-data
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/misc/hbtp 0750 system system
     
-
+# For fingerprint
+    mkdir /data/fingerprint/ 0766 system system	
+    chown system system /dev/goodix_fp
+    
     chown system system /sys/class/meizu/hall/key_hall_state
     chmod 0660 /sys/class/meizu/hall/key_hall_state
     chown audioserver audio /sys/devices/spk_proinfo/spk_cali
