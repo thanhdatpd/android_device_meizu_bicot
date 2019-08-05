@@ -1,0 +1,2 @@
+allow fingerprintd default_android_service:service_manager find;
+allow fingerprintd goodixfpd:binder { call transfer };
