@@ -135,6 +135,11 @@ on boot
     chmod 0440 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
     
     insmod /system/lib/modules/wlan.ko con_mode=5
+    insmod /system/lib/modules/wil6210.ko
+    insmod /system/lib/modules/generic_bl.ko
+    insmod /system/lib/modules/br_netfilter.ko
+    insmod /system/lib/modules/backlight.ko
+    insmod /system/lib/modules/rdbg.ko
     chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
