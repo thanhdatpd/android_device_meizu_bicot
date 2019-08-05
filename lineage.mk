@@ -25,6 +25,6 @@ BOARD_VENDOR := Meizu
 PRODUCT_GMS_CLIENTID_BASE := android-meizu
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="meizu/bicot/bicot_test:7.1.2_r36/ntd/0.0.1:eng/release-keys"
-    BUILD_FINGERPRINT := "meizu/bicot/bicot_test:7.1.2_r36/ntd/0.0.1:eng/release-keys"
+    PRIVATE_BUILD_DESC="meizu/bicot/bicot_test:7.1.2_r36/ntd/0.0.2:eng/release-keys"
+    BUILD_FINGERPRINT := "meizu/bicot/bicot_test:7.1.2_r36/ntd/0.0.2:eng/release-keys"
 
