@@ -56,7 +56,7 @@ on post-fs-data
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
     mkdir /data/misc/hbtp 0750 system system
-    insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
+    insmod /system/lib/modules/wlan.ko con_mode=5
     
 # For fingerprint
     mkdir /data/fingerprint/ 0766 system system	
