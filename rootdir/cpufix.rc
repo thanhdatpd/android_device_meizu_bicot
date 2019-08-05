@@ -1,4 +1,5 @@
 on property:sys.boot_completed=1
+    insmod /system/lib/modules/wlan.ko con_mode=5
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor ondemand
