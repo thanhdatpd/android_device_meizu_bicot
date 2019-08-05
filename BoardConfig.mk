@@ -13,7 +13,7 @@ TARGET_PROVIDES_INIT_RC := true
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/init.rc:root/init.rc
 PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/ueventd.rc:root/ueventd.rc
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/meizu/bicot/rootdir/sh,root)
-
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/rootdir/cpufix.rc:root/cpufix.rc
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 TARGET_BUILD_VARIANT = eng
