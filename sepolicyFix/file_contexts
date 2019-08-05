@@ -1,2 +1,3 @@
 #tryy
 /system/bin/sensorservice   u:object_r:sensorservice_exec:s0
+/system/bin/goodixfingerprintd   u:object_r:goodixfpd_exec:s0
