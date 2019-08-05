@@ -258,6 +258,20 @@ on init
 
 # Healthd can trigger a full boot from charger mode by signaling this
 # property when the power button is held.
+
+on fs
+    chown system system /dev/goodix_fp
+
+service goodixfpd /system/bin/goodixfingerprintd
+    class main
+    user system
+    group system
+
+service fingerprintd /system/bin/fingerprintd
+    class main
+    user system
+    group system
+
 on property:sys.boot_from_charger_mode=1
     class_stop charger
     trigger late-init
