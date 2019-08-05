@@ -739,15 +739,7 @@ service time_daemon /system/bin/time_daemon
     class main
     user root
     group root
-
 	
-
-
-service goodixfpd /system/bin/goodixfingerprintd
-    class late_start
-    user root
-    group system
-
 on property:sys.fp.goodix=0
    stop goodixfpd
 
@@ -758,10 +750,7 @@ on property:sys.fp.vendor=goodix
 on property:sys.fp.vendor=FPC
    setprop ro.boot.fpsensor fpc
 
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system 
-    group system sdcard_rw
+
     
 service sensorservice /system/bin/sensorservice
     class late_start
