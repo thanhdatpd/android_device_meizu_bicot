@@ -1,1 +1,2 @@
 allow init block_device:blk_file setattr;
+allow init system_file:system module_load;
