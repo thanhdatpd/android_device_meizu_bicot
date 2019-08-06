@@ -5,6 +5,8 @@ Sometime im happy, sometime im sad_ly. just another day come,
 
 Update timeline:
 
+- 6/8/2019: Today im so excited. i already push release v0.0.2, it fix wifi, fingerprint,.. and many thing have problem :( hope a good day come.
+
 - 5/8/2019: Hi, one more day overnight :(((. Some function work good: livedisplay, 3G/4G, sms,.. and a lot of thing not work properly like: no sound, no wifi, bluetooth, no call, no fingerprint... There is a long way to go finish, fightttt. 
 
 - 3/8/2019: aaaa, im so happy. it can booting okey althought have a lot error, missing alot function. I already update rom to release v0.0.1 for anyone want to debug test ,fix error (remember remove system/bin/mm-qcamera-daemon)
