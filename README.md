@@ -41,7 +41,7 @@ Initialize a repository with LineageOS lastest sercurity patch:
 
     repo init -u git://github.com/thanhdatpd/android.git -b lineage-14.1
 
-Initialize a repository with custom version LineageOS:
+Initialize a repository with custom version LineageOS ( now not good, use command above instead)
 
     repo init -u git://github.com/thanhdatpd/android.git -b lineage-14.1 -m lineage-14.1-bicot-v0.1.xml
   
