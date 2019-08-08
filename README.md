@@ -5,6 +5,8 @@ Sometime im happy, sometime im sad_ly. just another day come,
 
 Update timeline:
 
+- 8/8/2019: Today i going to new city, starting new life without PC :(. So, i will break for some week until have a new pc. That so borring. I still online to check any pull or comment,.. Hope everything okey.
+
 - 6/8/2019: Today im so excited. i already push release v0.0.2, it was fixed wifi, fingerprint,.. and many thing have problem :( hope a good day come. Note: insmod wlan.ko for wifi hal/driver, if have service not run, check sepolicy and/or create sepolicy domain for that service.
 
 - 5/8/2019: Hi, one more day overnight :(((. Some function work good: livedisplay, 3G/4G, sms,.. and a lot of thing not work properly like: no sound, no wifi, bluetooth, no call, no fingerprint... There is a long way to go finish, fightttt. 
