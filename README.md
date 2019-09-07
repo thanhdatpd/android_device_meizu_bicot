@@ -5,6 +5,8 @@ Sometime im happy, sometime im sad_ly. just another day come,
 
 Update timeline:
 
+- 7/9/2019: Yeahh, im comeback with newer pc i5 3470 and 8G ram, it still need about 4hour for first build :(((. so slow than google cloud compute engine. But its okey. have a nice day guy..
+
 - 8/8/2019: Today i going to new city, starting new life without PC :(. So, i will break for some week until have a new pc. That so borring. I still online to check any pull or comment,.. Hope everything okey.
 
 - 6/8/2019: Today im so excited. i already push release v0.0.2, it was fixed wifi, fingerprint,.. and many thing have problem :( hope a good day come. Note: insmod wlan.ko for wifi hal/driver, if have service not run, check sepolicy and/or create sepolicy domain for that service.
