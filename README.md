@@ -57,7 +57,7 @@ Build the code:
 
     source build/envsetup.sh
     breakfast bicot
-    make -j8 bacon showcommands 2>&1 | tee build.log
+    mka -j4 bacon showcommands 2>&1 | tee build.log
 
 
 
